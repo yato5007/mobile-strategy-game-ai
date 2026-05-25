@@ -1,11 +1,11 @@
 {
-  "overall_completion_percent": 14,
+  "overall_completion_percent": 16,
   "last_updated": "2026-05-25",
   "areas": {
     "main_speckit": { "weight": 10, "completion_percent": 90, "status": "COMPLETE" },
     "recursive_spec_tree": { "weight": 12, "completion_percent": 20, "status": "IN_PROGRESS" },
     "game_design_decisions": { "weight": 8, "completion_percent": 20, "status": "IN_PROGRESS" },
-    "core_game_logic": { "weight": 15, "completion_percent": 50, "status": "IN_PROGRESS" },
+    "core_game_logic": { "weight": 15, "completion_percent": 70, "status": "QA_REVIEW_PASS" },
     "bots_and_ai": { "weight": 10, "completion_percent": 0, "status": "TODO" },
     "multiplayer": { "weight": 10, "completion_percent": 0, "status": "TODO" },
     "localization": { "weight": 10, "completion_percent": 0, "status": "TODO" },
@@ -14,7 +14,7 @@
     "tests_balance_qa": { "weight": 10, "completion_percent": 0, "status": "TODO" },
     "integration_documentation_handoff": { "weight": 4, "completion_percent": 0, "status": "TODO" }
   },
-  "current_focus": "Core Game Logic Engine QA passed (PASS_WITH_NOTES). Ready for Reviewer. Art/Audio/Motion/Game Feel added as core branch.",
+  "current_focus": "Core Game Logic Engine QA ✅ + Review ✅. Deriving 6 remaining child branches.",
   "blockers": [],
-  "next_step": "Reviewer for Core Game Logic Engine. Then derive remaining 6 child branches."
+  "next_step": "Derive all 6 remaining child branches: UI, Bots, Multiplayer, Localization, Art/Audio/Motion, Balance."
 }

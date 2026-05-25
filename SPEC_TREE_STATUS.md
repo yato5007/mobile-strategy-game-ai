@@ -16,8 +16,9 @@ Core Game Logic Engine:
 - Current phase: full Spec Kit complete ✅, initial implementation complete ✅
 - QA: PASS_WITH_NOTES ✅ (all critical/major issues resolved, zero TS errors)
 - Reviewer: PASS ✅
-- Last checkpoint: All 8 TypeScript source files + fixes for C1, C2, M1, M4
+- Last checkpoint: Reviewer PASS — engine ready for downstream branches
 - QA result: `.spec-tree/core-game-logic/qa-result.md` — PASS_WITH_NOTES
+- Review result: `.spec-tree/core-game-logic/review-result.md` — PASS
 - Review result: `.spec-tree/core-game-logic/review-result.md` — PASS
 
 ## Resume Instructions
@@ -35,7 +36,7 @@ If interrupted:
 | Node | State | Phase | Depth |
 |---|---|---|---|---|
 | root | READY_FOR_CHILDREN | Spec Kit ✅, reviewed ✅ | 0 |
-| core-game-logic | READY_FOR_CHILDREN | Spec Kit ✅, impl ✅, QA PASS_WITH_NOTES ✅ | 1 |
+| core-game-logic | READY_FOR_CHILDREN | Spec Kit ✅, impl ✅, QA ✅, Review ✅ | 1 |
 
 ## Latest Progress
 
@@ -71,7 +72,7 @@ If interrupted:
 | Node | State | Phase | Depth |
 |---|---|---|---|
 | root | READY_FOR_CHILDREN | Spec Kit ✅ | 0 |
-| Core Game Logic Engine | READY_FOR_CHILDREN | Spec Kit ✅, Impl ✅, QA PASS_WITH_NOTES ✅ | 1 |
+| Core Game Logic Engine | READY_FOR_CHILDREN | Spec Kit ✅, Impl ✅, QA ✅, Review ✅ | 1 |
 | UI and User Experience | TODO | — | 1 |
 | Bot and AI System | TODO | — | 1 |
 | Multiplayer System | TODO | — | 1 |
