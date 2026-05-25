@@ -1,16 +1,16 @@
 # Project Progress Dashboard
 
-Last updated:
+Last updated: 2026-05-25
 
-Overall completion: 0%
+Overall completion: 5%
 
 ## Progress Breakdown
 
 | Area | Weight | Completion | Status |
 |---|---:|---:|---|
-| Main Spec Kit | 10% | 0% | TODO |
-| Recursive Spec Tree | 15% | 0% | TODO |
-| Game Design Decisions | 10% | 0% | TODO |
+| Main Spec Kit | 10% | 80% | IN_PROGRESS |
+| Recursive Spec Tree | 15% | 5% | TODO |
+| Game Design Decisions | 10% | 10% | IN_PROGRESS |
 | Core Game Logic | 15% | 0% | TODO |
 | Bots and AI Opponents | 10% | 0% | TODO |
 | Multiplayer Mock / Online Ready | 10% | 0% | TODO |
@@ -21,11 +21,12 @@ Overall completion: 0%
 
 ## Current Focus
 
-Not started.
+Root Spec Kit complete. Awaiting @spec-critic review, then deriving child branches.
 
 ## Completed Recently
 
-None.
+- Root constitution, specification, clarification, plan, tasks, analysis, checklist, implementation (scaffolding).
+- Game design emerged: Lane-control simultaneous deployment strategy game.
 
 ## Blockers
 
@@ -33,4 +34,4 @@ None.
 
 ## Next Recommended Step
 
-Start root Spec Kit workflow.
+Call @spec-critic to review root artifacts. Then derive child branches.
