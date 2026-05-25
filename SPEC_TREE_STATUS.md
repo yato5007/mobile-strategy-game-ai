@@ -12,10 +12,12 @@ Root:
 - Last checkpoint: spec-critic recommendations applied
 
 Core Game Logic Engine:
-- State: READY_FOR_CHILDREN
+- State: BLOCKED
 - Current phase: full Spec Kit complete ✅, initial implementation complete ✅
-- QA and Review: PENDING
+- QA and Review: QA COMPLETE — BLOCKED (21 compilation errors, event system non-functional, 3 major logic bugs)
 - Last checkpoint: All 8 TypeScript source files created + 12 Spec Kit artifacts
+- QA result: `.spec-tree/core-game-logic/qa-result.md` — BLOCKED
+- Blocker: Event emitter not accessible to engine functions (19 errors), missing PLANNING_TIME import (2 errors)
 
 ## Resume Instructions
 
@@ -30,9 +32,9 @@ If interrupted:
 ## Node List
 
 | Node | State | Phase | Depth |
-|---|---|---|---|
+|---|---|---|---|---|
 | root | READY_FOR_CHILDREN | Spec Kit ✅, reviewed ✅ | 0 |
-| core-game-logic | READY_FOR_CHILDREN | Spec Kit ✅, impl ✅, QA/Review 🔄 | 1 |
+| core-game-logic | BLOCKED | Spec Kit ✅, impl ✅, QA ❌ (C1, C2) | 1 |
 
 ## Latest Progress
 
@@ -61,7 +63,7 @@ If interrupted:
 | Node | State | Phase | Depth |
 |---|---|---|---|
 | root | READY_FOR_CHILDREN | Spec Kit ✅ | 0 |
-| Core Game Logic Engine | READY_FOR_CHILDREN | Spec Kit ✅, Impl ✅ | 1 |
+| Core Game Logic Engine | BLOCKED | QA: 21 errors, events broken | 1 |
 | UI and User Experience | TODO | — | 1 |
 | Bot and AI System | TODO | — | 1 |
 | Multiplayer System | TODO | — | 1 |
@@ -70,4 +72,17 @@ If interrupted:
 
 ## Blockers
 
-None. Ready for QA/review on core-game-logic. Continue deriving remaining child branches.
+### BLOCKED — Core Game Logic Engine
+
+**Status:** BLOCKED by QA (see `.spec-tree/core-game-logic/qa-result.md`)
+
+**Critical issues:**
+1. **C1: Event emitter not accessible in engine functions** (19 compilation errors) — The `events` variable is created in `createGame()` but is not passed to any other function. All `events.emit()` calls in `submitAssignments`, `revealAssignments`, `resolveRound`, `processCleanup` and helpers fail because `events` is not in scope.
+2. **C2: PLANNING_TIME not imported** (2 compilation errors) — Missing import from constants.
+
+**Major issues:**
+3. **M1: Card tracking bug** — Cards placed in both discard pile and lane assignments during submission, enabling premature reshuffle.
+4. **M2: First Blood achievement detection flawed** — Checks during cleanup instead of at VP award time, may award to wrong player.
+5. **M3: Comeback King uses heuristic** — Doesn't actually track historical last-place status.
+
+**Action required:** Fix all critical and major issues, then re-run QA with `tsc --noEmit` confirming zero errors. Do not derive child branches until this node is unblocked.

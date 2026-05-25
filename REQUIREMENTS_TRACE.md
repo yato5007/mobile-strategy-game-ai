@@ -32,7 +32,7 @@ No final PASS is allowed if a requirement has no trace.
 
 | ID | Description | Source | Node | Decision | Impl | Tests | QA | Review | Status |
 |---|---|---|---|---|---|---|---|---|---|---|
-| REQ-001 | Game must be strategic, not reflex/speed | Core 1 | core-game-logic | D001 | engine.ts, cards.ts | — | — | — | ✅ |
+| REQ-001 | Game must be strategic, not reflex/speed | Core 1 | core-game-logic | D001 | engine.ts, cards.ts | — | qa-result.md (C1: events not threaded) | — | 🔄 **BLOCKED** |
 | REQ-002 | Precise choices with clear consequences | Core 2 | core-game-logic | D001 | engine.ts (lane resolution), cards.ts | — | — | — | ✅ |
 | REQ-003 | Multiplayer support (4 players) | Core 3, 12 | core-game-logic | D001, D007 | types.ts (PlayerId, 4 players), state.ts | — | — | — | ✅ |
 | REQ-004 | No turn waiting (simultaneous) | Core 4 | core-game-logic | D001 | engine.ts (simultaneous planning → reveal) | — | — | — | ✅ |
@@ -126,7 +126,7 @@ No final PASS is allowed if a requirement has no trace.
 
 | Category | Total | ✅ Traced | 🔄 In Progress | ❌ Missing |
 |---|---|---|---|---|---|
-| Core Game | 22 | 22 | 0 | 0 |
+| Core Game | 22 | 21 | 1 (BLOCKED) | 0 |
 | Localization & Platform | 8 | 0 | 8 | 0 |
 | Bot | 12 | 0 | 12 | 0 |
 | Anti-Dominant Strategy | 10 | 6 | 4 | 0 |
