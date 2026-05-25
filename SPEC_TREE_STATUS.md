@@ -82,7 +82,25 @@ If interrupted:
   - ✅ qa-result.md — NOT_STARTED placeholder with QA scope
   - ✅ review-result.md — NOT_STARTED placeholder with review criteria
   - ✅ integration-notes.md (197 lines) — Bot-engine connection, slot filling, mock multiplayer, balance simulator, error handling, file structure
-- 🔄 Next: Implement bot system (Tasks 1-19), then run QA and Review, or move to next branch.
+- ✅ **Multiplayer System** — Populated all 12 Spec Kit files:
+  - ✅ clarification.md (155 lines) — Mock vs real adapter, state serialization, phase sync, timeout, disconnect, Supabase channel design
+  - ✅ analysis.md (165 lines) — Risks (sync bugs, timeouts, serialization), dependencies, key decisions (local first, adapter wraps engine)
+  - ✅ checklist.md (60 items) — Interface, mock adapter, phase sync, timeout, disconnect, FFA, 2v2, serialization, lifecycle, integration, docs
+  - ✅ NODE_SUMMARY.md — Full summary with parent link, decisions, alternatives, dependencies, next steps, architecture diagram
+  - ✅ implementation-result.md — NOT_IMPLEMENTED with implementation plan
+  - ✅ qa-result.md — NOT_STARTED with QA scope (14 verification items)
+  - ✅ review-result.md — NOT_STARTED with review criteria (12 checks)
+  - ✅ integration-notes.md — Engine/Bot/UI/Store integration, Supabase migration strategy, testing strategy, file structure
+- 🔄 Next: Implement bot system (Tasks 1-19), then QA & Review. Then implement multiplayer system, or proceed to remaining branches.
+- ✅ **Localization System** — Completed full Spec Kit lifecycle (all 12 files populated):
+  - ✅ clarification.md (265 lines) — Deep Q&A on i18next setup, translation file structure, RTL via I18nManager, key usage convention, language detection flow, edge cases
+  - ✅ analysis.md (136 lines) — 6 risks assessed (RTL breaking, Arabic 25% longer, missing translations, runtime switch limits, font differences, key explosion), 5 decisions documented, dependencies, testing strategy
+  - ✅ checklist.md (79 lines, 64 items) — Framework setup, translation files (6 per language), RTL/LTR support, no hardcoded text, language switching, Arabic-specific, testing
+  - ✅ NODE_SUMMARY.md (65 lines) — Full summary with parent link, 5 decisions, 5 alternatives rejected, dependencies, integration risks, next step
+  - ✅ implementation-result.md — NOT_IMPLEMENTED placeholder with implementation plan
+  - ✅ qa-result.md — NOT_STARTED placeholder with QA scope
+  - ✅ review-result.md — NOT_STARTED placeholder with review criteria
+  - ✅ integration-notes.md (184 lines) — UI hook contract, RTL component wrapping, app root config, language switch flow, React Navigation integration, interface contract for UI branch
 
 ## Node List (Full)
 
@@ -92,11 +110,11 @@ If interrupted:
 | Core Game Logic Engine | READY_FOR_CHILDREN | Spec Kit ✅, Impl ✅, QA ✅, Review ✅ | 1 |
 | UI and User Experience | TODO | — | 1 |
 | Bot and AI System | IN_PROGRESS | Spec Kit ✅ (all 12 files populated), implementation pending | 1 |
-| Multiplayer System | TODO | — | 1 |
-| Localization System | TODO | — | 1 |
+| Multiplayer System | IN_PROGRESS | Spec Kit ✅ (all 12 files populated), implementation pending | 1 |
+| Localization System | LEAF_READY_FOR_IMPLEMENTATION | Spec Kit ✅ (all 12 files populated) | 1 |
 | Art, Audio, Motion, and Game Feel System | TODO | — | 1 |
 | Balance and Testing | TODO | — | 1 |
 
 ## Blockers
 
-None. Core Game Logic Engine is complete and reviewed. All 6 remaining branches have constitutions. Ready to proceed with full Spec Kit lifecycle for each branch.
+None. Core Game Logic Engine is complete and reviewed. 4 branches have completed Spec Kit (Bot, Multiplayer, Localization), 3 remain (UI, Art/Audio/Motion, Balance/Testing).

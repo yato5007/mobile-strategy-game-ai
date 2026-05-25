@@ -2,7 +2,7 @@
 
 Last updated: 2026-05-25
 
-Overall completion: 16%
+Overall completion: 19%
 
 ## Progress Breakdown
 
