@@ -112,9 +112,9 @@ If interrupted:
 | Bot and AI System | IN_PROGRESS | Spec Kit ✅ (all 12 files populated), implementation pending | 1 |
 | Multiplayer System | IN_PROGRESS | Spec Kit ✅ (all 12 files populated), implementation pending | 1 |
 | Localization System | LEAF_READY_FOR_IMPLEMENTATION | Spec Kit ✅ (all 12 files populated) | 1 |
-| Art, Audio, Motion, and Game Feel System | TODO | — | 1 |
+| Art, Audio, Motion, and Game Feel System | LEAF_READY_FOR_IMPLEMENTATION | Spec Kit ✅ (all artifacts complete) | 1 |
 | Balance and Testing | TODO | — | 1 |
 
 ## Blockers
 
-None. Core Game Logic Engine is complete and reviewed. 4 branches have completed Spec Kit (Bot, Multiplayer, Localization), 3 remain (UI, Art/Audio/Motion, Balance/Testing).
+None. Core Game Logic Engine is complete and reviewed. 5 branches have completed Spec Kit (Bot, Multiplayer, Localization, Art/Audio/Motion), 2 remain (UI, Balance/Testing).
