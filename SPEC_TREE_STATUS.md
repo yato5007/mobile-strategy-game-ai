@@ -8,8 +8,8 @@ Branch count: unlimited, but only necessary branches
 
 Root:
 - State: READY_FOR_CHILDREN
-- Current phase: full Spec Kit complete ✅
-- Last checkpoint: root Spec Kit complete
+- Current phase: full Spec Kit complete, spec-critic reviewed ✅
+- Last checkpoint: spec-critic recommendations applied
 
 ## Resume Instructions
 
@@ -25,20 +25,38 @@ If interrupted:
 
 | Node | State | Phase | Depth |
 |---|---|---|---|
-| root | READY_FOR_CHILDREN | full Spec Kit ✅ | 0 |
+| root | READY_FOR_CHILDREN | Spec Kit ✅, reviewed ✅ | 0 |
 
 ## Latest Progress
 
 - ✅ Root constitution
-- ✅ Root specification (lane-control simultaneous strategy game)
-- ✅ Root clarification (10 Q&A)
+- ✅ Root specification
+- ✅ Root clarification
 - ✅ Root plan
 - ✅ Root tasks
 - ✅ Root analysis
 - ✅ Root checklist
 - ✅ Root implementation (scaffolding)
-- 🔄 Next: call @spec-critic to review root
+- ✅ @spec-critic review: PASS_WITH_NOTES
+- ✅ All 4 recommendations applied:
+  - DECISIONS.md populated (10 decisions recorded)
+  - REQUIREMENTS_TRACE.md started (62 requirements traced)
+  - Stub QA, review, integration-notes created
+  - Anti-points-race depth documented in D010
+- 🔄 Next: Derive child branches
+
+## Node List (Full)
+
+| Node | State | Phase | Depth |
+|---|---|---|---|
+| root | READY_FOR_CHILDREN | Spec Kit ✅ | 0 |
+| Core Game Logic Engine | TODO | — | 1 |
+| UI and User Experience | TODO | — | 1 |
+| Bot and AI System | TODO | — | 1 |
+| Multiplayer System | TODO | — | 1 |
+| Localization System | TODO | — | 1 |
+| Balance and Testing | TODO | — | 1 |
 
 ## Blockers
 
-None. Ready for spec-critic review and child branch derivation.
+None. Ready for child branch derivation.
