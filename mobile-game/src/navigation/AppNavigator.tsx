@@ -18,23 +18,27 @@ import LobbyScreen from '../screens/LobbyScreen';
 import GameScreen from '../screens/GameScreen';
 import ResultsScreen from '../screens/ResultsScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import type { Difficulty, Style } from '../bot';
+import type { GameState, GameResult } from '../game/types';
 
 // ─── Types ──────────────────────────────────────────────────────
+
+export interface NavigationPlayerSlot {
+  isBot: boolean;
+  difficulty?: Difficulty;
+  style?: Style;
+}
 
 export type RootStackParamList = {
   Home: undefined;
   Lobby: undefined;
   Game: {
     mode: 'ffa' | '2v2';
-    playerSlots: Array<{
-      isBot: boolean;
-      difficulty?: string;
-      style?: string;
-    }>;
+    playerSlots: NavigationPlayerSlot[];
   };
   Results: {
-    gameState: any;
-    gameResult: any;
+    gameState: GameState;
+    gameResult: GameResult;
     mode: 'ffa' | '2v2';
   };
   Settings: undefined;

@@ -7,6 +7,13 @@
  * - RTL-aware direction helpers
  * - Reduce-motion support via context
  *
+ * IMPORTANT: This hook does NOT create any useSharedValue or useAnimatedStyle
+ * internally. Those hooks must be called at the top level of the calling
+ * component/hook. This hook provides timing configs and direction helpers.
+ *
+ * For creating shared values, use individual hooks (useFadeAnimation,
+ * useSlideAnimation) or raw Reanimated hooks in your component.
+ *
  * Depends on:
  * - react-native-reanimated (v4.3.1+)
  * - ReduceMotionContext for accessibility
@@ -15,12 +22,13 @@
 import { useCallback, useContext, useMemo } from 'react';
 import { I18nManager } from 'react-native';
 import {
-  useSharedValue,
-  useAnimatedStyle,
   withTiming,
   withSpring,
+  useSharedValue,
+  useAnimatedStyle,
   type WithTimingConfig,
   type WithSpringConfig,
+  type SharedValue,
   Easing,
 } from 'react-native-reanimated';
 import { ReduceMotionContext } from '../context/ReduceMotionContext';
@@ -92,6 +100,22 @@ export type AnimationWeight =
 /** Direction for RTL-aware animations */
 export type AnimationDirection = 'left' | 'right' | 'up' | 'down';
 
+/** Result of a fade animation setup */
+export interface FadeAnimation {
+  opacity: SharedValue<number>;
+  style: ReturnType<typeof useAnimatedStyle>;
+  animate: (toValue?: number) => void;
+}
+
+/** Result of a slide animation setup */
+export interface SlideAnimation {
+  translateX: SharedValue<number>;
+  translateY: SharedValue<number>;
+  opacity: SharedValue<number>;
+  style: ReturnType<typeof useAnimatedStyle>;
+  animate: () => void;
+}
+
 // ─── Hook ───────────────────────────────────────────────────────
 
 export interface UseAnimationOptions {
@@ -108,32 +132,24 @@ export interface UseAnimationReturn {
   toRTL: (direction: AnimationDirection) => AnimationDirection;
   /** Whether reduced motion is active */
   reduceMotion: boolean;
-  /** Shared value + animated style factory for fade in */
-  fadeIn: (initialOpacity?: number) => {
-    opacity: ReturnType<typeof useSharedValue<number>>;
-    style: ReturnType<typeof useAnimatedStyle>;
-    animate: (toValue?: number) => void;
-  };
-  /** Shared value + animated style factory for slide in */
-  slideIn: (direction?: AnimationDirection, distance?: number) => {
-    translateX: ReturnType<typeof useSharedValue<number>>;
-    translateY: ReturnType<typeof useSharedValue<number>>;
-    opacity: ReturnType<typeof useSharedValue<number>>;
-    style: ReturnType<typeof useAnimatedStyle>;
-    animate: (toValue?: number) => void;
-  };
 }
 
 /**
- * useAnimation — Provides animation presets, RTL helpers, and
- * reusable animated style factories.
+ * useAnimation — Provides animation presets and RTL helpers.
  *
- * Basic usage:
+ * This hook is safe to use — it does not create useSharedValue or
+ * useAnimatedStyle internally (those must be called at the top level
+ * of a component).
+ *
+ * For animated styles, use the dedicated animation hooks:
+ * - useFadeAnimation() — creates fade in/out shared values + style
+ * - useSlideAnimation() — creates slide in/out shared values + style
+ *
+ * Or use raw Reanimated hooks in your component:
  * ```tsx
- * const { fadeIn, reduceMotion } = useAnimation();
- * const { style, animate } = fadeIn();
- * useEffect(() => { animate(); }, []);
- * return <Animated.View style={style} />;
+ * const opacity = useSharedValue(0);
+ * const style = useAnimatedStyle(() => ({ opacity: opacity.value }));
+ * const { getTiming, toRTL, reduceMotion } = useAnimation();
  * ```
  */
 export function useAnimation(options?: UseAnimationOptions): UseAnimationReturn {
@@ -147,7 +163,6 @@ export function useAnimation(options?: UseAnimationOptions): UseAnimationReturn 
   const getTiming = useCallback(
     (weight: AnimationWeight = options?.weight ?? 'normal'): WithTimingConfig | WithSpringConfig => {
       if (reduceMotion) {
-        // Skip animations when reduce motion is active
         return { duration: 0 };
       }
 
@@ -179,7 +194,6 @@ export function useAnimation(options?: UseAnimationOptions): UseAnimationReturn 
   const toRTL = useCallback(
     (direction: AnimationDirection): AnimationDirection => {
       if (!isRTL) return direction;
-      // Flip horizontal directions for RTL
       switch (direction) {
         case 'left':
           return 'right';
@@ -192,62 +206,88 @@ export function useAnimation(options?: UseAnimationOptions): UseAnimationReturn 
     [isRTL],
   );
 
-  /** Factory: create a fade-in animation */
-  const fadeIn = useCallback(
-    (initialOpacity: number = 0) => {
-      const opacity = useSharedValue(initialOpacity);
-      const style = useAnimatedStyle(() => ({
-        opacity: opacity.value,
-      }));
-      const animate = (toValue: number = 1) => {
-        opacity.value = withTiming(toValue, getTiming('smooth'));
-      };
-      return { opacity, style, animate };
-    },
-    [getTiming],
-  );
-
-  /** Factory: create a slide-in animation */
-  const slideIn = useCallback(
-    (direction: AnimationDirection = 'up', distance: number = 50) => {
-      const adjustedDir = toRTL(direction);
-
-      const initialX = adjustedDir === 'left' ? -distance : adjustedDir === 'right' ? distance : 0;
-      const initialY = adjustedDir === 'up' ? -distance : adjustedDir === 'down' ? distance : 0;
-
-      const translateX = useSharedValue(initialX);
-      const translateY = useSharedValue(initialY);
-      const opacity = useSharedValue(0);
-
-      const style = useAnimatedStyle(() => ({
-        transform: [
-          { translateX: translateX.value },
-          { translateY: translateY.value },
-        ],
-        opacity: opacity.value,
-      }));
-
-      const animate = () => {
-        translateX.value = withTiming(0, getTiming('smooth'));
-        translateY.value = withTiming(0, getTiming('smooth'));
-        opacity.value = withTiming(1, getTiming('smooth'));
-      };
-
-      return { translateX, translateY, opacity, style, animate };
-    },
-    [toRTL, getTiming],
-  );
-
   return useMemo(
     () => ({
       getTiming,
       toRTL,
       reduceMotion,
-      fadeIn,
-      slideIn,
     }),
-    [getTiming, toRTL, reduceMotion, fadeIn, slideIn],
+    [getTiming, toRTL, reduceMotion],
   );
+}
+
+// ─── Dedicated Animation Hooks ───────────────────────────────────
+
+/**
+ * useFadeAnimation — Creates a fade-in animation.
+ *
+ * Call at the top level of a component. Returns shared values,
+ * animated style, and an animate() function.
+ *
+ * ```tsx
+ * const { style, animate } = useFadeAnimation();
+ * useEffect(() => { animate(); }, []);
+ * return <Animated.View style={style} />;
+ * ```
+ */
+export function useFadeAnimation(initialOpacity: number = 0): FadeAnimation {
+  const opacity = useSharedValue(initialOpacity);
+  const { getTiming } = useAnimation();
+
+  const style = useAnimatedStyle(() => ({
+    opacity: opacity.value,
+  }));
+
+  const animate = useCallback(
+    (toValue: number = 1) => {
+      opacity.value = withTiming(toValue, getTiming('smooth'));
+    },
+    [opacity, getTiming],
+  );
+
+  return { opacity, style, animate };
+}
+
+/**
+ * useSlideAnimation — Creates a slide-in animation.
+ *
+ * Call at the top level of a component. Direction is RTL-aware.
+ *
+ * ```tsx
+ * const { style, animate } = useSlideAnimation('up');
+ * useEffect(() => { animate(); }, []);
+ * return <Animated.View style={style} />;
+ * ```
+ */
+export function useSlideAnimation(
+  direction: AnimationDirection = 'up',
+  distance: number = 50,
+): SlideAnimation {
+  const { getTiming, toRTL } = useAnimation();
+  const adjustedDir = toRTL(direction);
+
+  const initialX = adjustedDir === 'left' ? -distance : adjustedDir === 'right' ? distance : 0;
+  const initialY = adjustedDir === 'up' ? -distance : adjustedDir === 'down' ? distance : 0;
+
+  const translateX = useSharedValue(initialX);
+  const translateY = useSharedValue(initialY);
+  const opacity = useSharedValue(0);
+
+  const style = useAnimatedStyle(() => ({
+    transform: [
+      { translateX: translateX.value },
+      { translateY: translateY.value },
+    ],
+    opacity: opacity.value,
+  }));
+
+  const animate = useCallback(() => {
+    translateX.value = withTiming(0, getTiming('smooth'));
+    translateY.value = withTiming(0, getTiming('smooth'));
+    opacity.value = withTiming(1, getTiming('smooth'));
+  }, [translateX, translateY, opacity, getTiming]);
+
+  return { translateX, translateY, opacity, style, animate };
 }
 
 export default useAnimation;

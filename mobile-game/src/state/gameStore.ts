@@ -21,8 +21,8 @@ import type {
 import { submitAssignments, cloneGameState, getGameResult } from '../game';
 import type { MultiplayerAdapter } from '../multiplayer/types';
 import { MockMultiplayerAdapter } from '../multiplayer/mockMultiplayerAdapter';
-import { createBot } from '../bot/botController';
-import type { Difficulty, Style, BotConfig } from '../bot/botController';
+import { createBot } from '../bot';
+import type { Difficulty, Style, BotConfig } from '../bot';
 
 // ─── Types ──────────────────────────────────────────────────────
 

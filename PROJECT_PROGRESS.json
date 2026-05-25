@@ -1,5 +1,5 @@
 {
-  "overall_completion_percent": 78,
+  "overall_completion_percent": 85,
   "last_updated": "2026-05-25",
   "areas": {
     "main_speckit": { "weight": 10, "completion_percent": 100, "status": "COMPLETE" },
@@ -11,10 +11,10 @@
     "localization": { "weight": 10, "completion_percent": 100, "status": "IMPLEMENTED" },
     "art_audio_motion_gamefeel": { "weight": 7, "completion_percent": 70, "status": "PLACEHOLDER_IMPLEMENTED" },
     "platforms": { "weight": 4, "completion_percent": 30, "status": "SCAFFOLDED" },
-    "tests_balance_qa": { "weight": 10, "completion_percent": 80, "status": "PARTIAL" },
-    "integration_documentation_handoff": { "weight": 4, "completion_percent": 10, "status": "TODO" }
+    "tests_balance_qa": { "weight": 10, "completion_percent": 85, "status": "PARTIAL" },
+    "integration_documentation_handoff": { "weight": 4, "completion_percent": 30, "status": "INTEGRATION_FREEZE_DONE" }
   },
-  "current_focus": "Art/Audio/Motion placeholder system created. Next: Integration Freeze, AI_HANDOFF_MANUAL.md, Final Handoff Package.",
+  "current_focus": "Integration Freeze complete. Next: AI_HANDOFF_MANUAL.md and Final AI Handoff Package.",
   "blockers": [],
-  "next_step": "Integration Freeze — cross-system integration test, final QA pass."
+  "next_step": "AI_HANDOFF_MANUAL.md — Complete handoff documentation for future AI assistants."
 }

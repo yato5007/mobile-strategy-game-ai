@@ -8,12 +8,12 @@
  * - GestureHandlerRootView
  */
 import React, { useEffect } from 'react';
-import { StyleSheet, LogBox, Platform, StatusBar } from 'react-native';
+import { StyleSheet, LogBox, Platform, StatusBar, Dimensions } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { AppNavigator } from './src/navigation/AppNavigator';
 import { useUIStore } from './src/state/uiStore';
-import { Dimensions } from 'react-native';
+import { ReduceMotionProvider } from './src/context/ReduceMotionContext';
 
 // Initialize i18n
 import './src/localization/i18n';
@@ -46,12 +46,14 @@ export default function App() {
   return (
     <GestureHandlerRootView style={styles.root}>
       <SafeAreaProvider>
-        <StatusBar
-          barStyle="light-content"
-          backgroundColor="#1A2744"
-          translucent={false}
-        />
-        <AppNavigator />
+        <ReduceMotionProvider>
+          <StatusBar
+            barStyle="light-content"
+            backgroundColor="#1A2744"
+            translucent={false}
+          />
+          <AppNavigator />
+        </ReduceMotionProvider>
       </SafeAreaProvider>
     </GestureHandlerRootView>
   );

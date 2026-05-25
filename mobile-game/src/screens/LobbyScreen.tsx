@@ -14,13 +14,14 @@ import {
   StyleSheet,
   useWindowDimensions,
   StatusBar,
+  I18nManager,
 } from 'react-native';
 import { useTranslation } from '../localization/useTranslation';
 import { Colors, Spacing } from '../theme';
 import { RTLText, HeadingText } from '../components/RTLText';
 import { RTLPressable } from '../components/RTLPressable';
 import { RTLView } from '../components/RTLView';
-import type { Difficulty, Style } from '../bot/botController';
+import type { Difficulty, Style } from '../bot';
 import type { PlayerSlotConfig } from '../state/gameStore';
 
 // ─── Types ──────────────────────────────────────────────────────
@@ -105,7 +106,7 @@ export const LobbyScreen: React.FC<LobbyScreenProps> = ({ navigation }) => {
     });
   }, [gameMode, playerConfigs, navigation, t]);
 
-  const isRTL = false; // I18nManager.isRTL
+  const isRTL = I18nManager.isRTL;
 
   // ─── Render ───────────────────────────────────────────────────
 
