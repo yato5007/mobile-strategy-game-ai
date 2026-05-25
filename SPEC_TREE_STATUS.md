@@ -19,7 +19,13 @@ Core Game Logic Engine:
 - Last checkpoint: Reviewer PASS — engine ready for downstream branches
 - QA result: `.spec-tree/core-game-logic/qa-result.md` — PASS_WITH_NOTES
 - Review result: `.spec-tree/core-game-logic/review-result.md` — PASS
-- Review result: `.spec-tree/core-game-logic/review-result.md` — PASS
+
+Multiplayer System:
+- State: IMPLEMENTED → QA: BLOCKED
+- Current phase: Spec Kit complete ✅, implementation complete ✅
+- QA: BLOCKED ⛔ (3 critical issues: all-bot stall, timer race condition, no adapter tests)
+- QA result: `.spec-tree/multiplayer-system/qa-result.md` — BLOCKED
+- Last checkpoint: QA review complete — awaiting fixes
 
 ## Resume Instructions
 
@@ -37,6 +43,7 @@ If interrupted:
 |---|---|---|---|---|
 | root | READY_FOR_CHILDREN | Spec Kit ✅, reviewed ✅ | 0 |
 | core-game-logic | READY_FOR_CHILDREN | Spec Kit ✅, impl ✅, QA ✅, Review ✅ | 1 |
+| multiplayer-system | BLOCKED | Spec Kit ✅, impl ✅, QA: BLOCKED ⛔ | 1 |
 
 ## Latest Progress
 
@@ -44,13 +51,14 @@ If interrupted:
 - ✅ Root implementation (scaffolding)
 - ✅ @spec-critic review: PASS_WITH_NOTES
 - ✅ **core-game-logic branch**: Impl ✅ QA ✅ Review ✅
-- ✅ **bot-ai branch**: Full Spec Kit complete (12 files, ~1,022 lines)
-- ✅ **multiplayer-system branch**: Full Spec Kit complete (12 files, ~900 lines)
+- ✅ **bot-ai branch**: Full Spec Kit complete (12 files, ~1,022 lines) + Impl ✅
+- ✅ **multiplayer-system branch**: Full Spec Kit complete (12 files, ~900 lines) + Impl ✅
+- ✅ **multiplayer-system QA**: Completed — BLOCKED ⛔ (3 critical issues)
 - ✅ **localization-system branch**: Full Spec Kit complete (12 files, ~941 lines)
 - ✅ **art-audio-motion branch**: Full Spec Kit complete (12 files, ~900 lines)
 - ✅ **ui-and-ux branch**: Full Spec Kit complete (12 files, ~800 lines)
 - ✅ **balance-testing branch**: Full Spec Kit complete (12 files, ~900 lines)
-- 🔄 **Next**: Implement Bot AI system (leaf node). Then Mock Multiplayer, then UI.
+- 🔄 **Next**: Fix multiplayer BLOCKED issues, then continue with UI implementation.
 
 ## Node List (Full)
 
@@ -59,21 +67,17 @@ If interrupted:
 | root | READY_FOR_CHILDREN | Spec Kit ✅ | 0 |
 | Core Game Logic Engine | READY_FOR_CHILDREN | Spec Kit ✅, Impl ✅, QA ✅, Review ✅ | 1 |
 | UI and User Experience | LEAF_READY_FOR_IMPLEMENTATION | Spec Kit ✅ | 1 |
-| Bot and AI System | LEAF_READY_FOR_IMPLEMENTATION | Spec Kit ✅ | 1 |
-| Multiplayer System | LEAF_READY_FOR_IMPLEMENTATION | Spec Kit ✅ | 1 |
+| Bot and AI System | LEAF_READY_FOR_IMPLEMENTATION | Spec Kit ✅, Impl ✅ | 1 |
+| Multiplayer System | **BLOCKED** | Spec Kit ✅, Impl ✅, QA: **BLOCKED** ⛔ | 1 |
 | Localization System | LEAF_READY_FOR_IMPLEMENTATION | Spec Kit ✅ | 1 |
 | Art, Audio, Motion, and Game Feel System | LEAF_READY_FOR_IMPLEMENTATION | Spec Kit ✅ | 1 |
 | Balance and Testing | LEAF_READY_FOR_IMPLEMENTATION | Spec Kit ✅ | 1 |
 
-## Blockers
-
-None. All 7 branches (1 implemented + 6 ready) have complete Spec Kits.
-
 ## Implementation Priority
 
-1. Bot and AI System (no blockers — depends only on Core Game Logic ✅)
-2. Multiplayer System — Mock Adapter (no blockers — depends only on Core Game Logic ✅)
-3. UI and User Experience (starts in parallel)
+1. ✅ Bot and AI System — Implemented
+2. ⛔ Multiplayer System — **BLOCKED** (must fix QA issues first)
+3. UI and User Experience (next after multiplayer unblocked)
 4. Localization System (depends on UI)
 5. Balance and Testing (depends on Bot AI)
 6. Art, Audio, Motion, and Game Feel System (depends on UI + engine events)

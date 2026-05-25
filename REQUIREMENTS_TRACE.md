@@ -32,20 +32,13 @@ No final PASS is allowed if a requirement has no trace.
 
 | ID | Description | Source | Node | Decision | Impl | Tests | QA | Review | Status |
 |---|---|---|---|---|---|---|---|---|---|---|
-| REQ-001 | Game must be strategic, not reflex/speed | Core 1 | core-game-logic | D001 | engine.ts, cards.ts | — | qa-result.md (C1: events not threaded) | — | 🔄 **BLOCKED** |
+| REQ-001 | Game must be strategic, not reflex/speed | Core 1 | core-game-logic | D001 | engine.ts, cards.ts | — | qa-result.md | — | ✅ |
 | REQ-002 | Precise choices with clear consequences | Core 2 | core-game-logic | D001 | engine.ts (lane resolution), cards.ts | — | — | — | ✅ |
-| REQ-003 | Multiplayer support (4 players) | Core 3, 12 | core-game-logic | D001, D007 | types.ts (PlayerId, 4 players), state.ts | — | — | — | ✅ |
-| REQ-004 | No turn waiting (simultaneous) | Core 4 | core-game-logic | D001 | engine.ts (simultaneous planning → reveal) | — | — | — | ✅ |
-| REQ-005 | Easy to understand, quick to get into | Core 5 | core-game-logic | D001 | cards.ts (simple unit/tactic cards), constants.ts | — | — | — | ✅ |
-| REQ-006 | Not complex or overloaded | Core 6 | core-game-logic | D001 | constants.ts (streamlined, 14 cards/deck) | — | — | — | ✅ |
-| REQ-007 | No heavy management or excess details | Core 7 | core-game-logic | D001 | engine.ts (clean round phases) | — | — | — | ✅ |
-| REQ-008 | Match ≤ 30 minutes | Core 8 | core-game-logic | D002 | constants.ts (MAX_ROUNDS=12, timings) | — | — | — | ✅ |
-| REQ-009 | Changing match conditions | Core 9 | core-game-logic | D001, D008 | state.ts (rotating lane objectives), constants.ts | — | — | — | ✅ |
-| REQ-010 | Comeback possible for losing player | Core 10 | core-game-logic | D004 | engine.ts (processComebackBonuses), cards.ts (comeback cards) | — | — | — | ✅ |
-| REQ-011 | Competition strong until end | Core 11 | core-game-logic | D002, D004 | engine.ts (fixed rounds, no early end) | — | — | — | ✅ |
-| REQ-012 | 4 players supported | Core 12 | core-game-logic | D001 | types.ts (4 players array), engine.ts (createGame) | — | — | — | ✅ |
-| REQ-013 | 2v2 team mode | Core 13 | core-game-logic | D005 | engine.ts (team strength, team VP), constants.ts | — | — | — | ✅ |
-| REQ-014 | FFA 1v1v1v1 mode | Core 14 | core-game-logic | D001 | engine.ts (FFA resolution), types.ts (GameMode) | — | — | — | ✅ |
+| REQ-003 | Multiplayer support (4 players) | Core 3, 12 | multiplayer-system | D001, D007 | types.ts (PlayerId, 4 players), state.ts, multiplayer/types.ts, multiplayer/mockMultiplayerAdapter.ts | multiplayer/__tests__/ — MISSING | qa-result.md (BLOCKED — C3) | — | 🔄 **BLOCKED** |
+| REQ-004 | No turn waiting (simultaneous) | Core 4 | multiplayer-system | D001 | engine.ts (simultaneous planning → reveal), multiplayer/mockMultiplayerAdapter.ts (phase sync) | multiplayer/__tests__/ — MISSING | qa-result.md (BLOCKED — C1, C2, C3) | — | 🔄 **BLOCKED** |
+| REQ-012 | 4 players supported | Core 12 | multiplayer-system | D001 | types.ts (4 players array), engine.ts (createGame), multiplayer/types.ts | multiplayer/__tests__/ — MISSING | qa-result.md (BLOCKED — C3) | — | 🔄 **BLOCKED** |
+| REQ-013 | 2v2 team mode | Core 13 | multiplayer-system | D005 | engine.ts (team strength, team VP), constants.ts, multiplayer/mockMultiplayerAdapter.ts | multiplayer/__tests__/ — MISSING | qa-result.md (BLOCKED — C3) | — | 🔄 **BLOCKED** |
+| REQ-014 | FFA 1v1v1v1 mode | Core 14 | multiplayer-system | D001 | engine.ts (FFA resolution), types.ts (GameMode), multiplayer/mockMultiplayerAdapter.ts | multiplayer/__tests__/ — MISSING | qa-result.md (BLOCKED — C3) | — | 🔄 **BLOCKED** |
 | REQ-015 | Strategic game (not shallow points race) | Core 15 | core-game-logic | D010 | cards.ts (bluff, sabotage, ambush, etc.), engine.ts (tactic effects) | — | — | — | ✅ |
 | REQ-016 | No reward for hiding/passive play | Core 16 | core-game-logic | D003 | engine.ts (validateAssignment rejects empty) | — | — | — | ✅ |
 | REQ-017 | Active play throughout must matter | Core 17 | core-game-logic | D003 | engine.ts (mandatory ≥1 card, skip penalty) | — | — | — | ✅ |
@@ -71,19 +64,19 @@ No final PASS is allowed if a requirement has no trace.
 ### Bot Requirements
 
 | ID | Description | Source | Node | Decision | Impl | Tests | QA | Review | Status |
-|---|---|---|---|---|---|---|---|---|---|
-| REQ-031 | Bots to fill missing player slots | Bot 1 | root | D006 | — | — | — | — | 🔄 |
-| REQ-032 | Bots with difficulty levels (E/N/H/E) | Bot 3, 4 | root | D006 | — | — | — | — | 🔄 |
-| REQ-033 | Difficulty affects planning quality | Bot 5 | root | D006 | — | — | — | — | 🔄 |
-| REQ-034 | Bots must not cheat on hidden info | Bot 6 | root | D006 | — | — | — | — | 🔄 |
-| REQ-035 | Bots work in FFA | Bot 7 | root | — | — | — | — | — | 🔄 |
-| REQ-036 | Bots work in 2v2 | Bot 8 | root | D005 | — | — | — | — | 🔄 |
-| REQ-037 | Bots usable for local testing | Bot 9 | root | D006, D007 | — | — | — | — | 🔄 |
-| REQ-038 | Bots usable by balance simulator | Bot 10 | root | D006, D008 | — | — | — | — | 🔄 |
-| REQ-039 | Bot behavior must be strategic | Bot 11 | root | D006 | — | — | — | — | 🔄 |
-| REQ-040 | Bot difficulty selectable before match | Bot 12 | root | — | — | — | — | — | 🔄 |
-| REQ-041 | Bots support strategic styles (7 types) | Bot Style | root | D006 | — | — | — | — | 🔄 |
-| REQ-042 | Difficulty controls quality, style controls personality | Bot Style | root | D006 | — | — | — | — | 🔄 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| REQ-031 | Bots to fill missing player slots | Bot 1 | bot-ai | D006 | botController.ts (createBot, DEFAULT_BOT_CONFIG) | integration.test.ts | qa-result.md (⚠️ PARTIAL) | — | 🔄 |
+| REQ-032 | Bots with difficulty levels (E/N/H/E) | Bot 3, 4 | bot-ai | D006 | botController.ts (DIFFICULTY_PROFILES: 4 levels) | integration.test.ts | qa-result.md (✅ PASS) | — | ✅ |
+| REQ-033 | Difficulty affects planning quality | Bot 5 | bot-ai | D006 | botController.ts (noiseRange, handMgt, tacticUsage, etc.) | — | qa-result.md (✅ PASS) | — | ✅ |
+| REQ-034 | Bots must not cheat on hidden info | Bot 6 | bot-ai | D006 | botController.ts (hand.length only, no card IDs read) | — | qa-result.md (✅ PASS — code doesn't use, but structurally available) | — | ✅ |
+| REQ-035 | Bots work in FFA | Bot 7 | bot-ai | D006 | botController.ts (calculateOpponentPresence, findLeader for FFA) | integration.test.ts (12 rounds FFA) | qa-result.md (✅ PASS) | — | ✅ |
+| REQ-036 | Bots work in 2v2 | Bot 8 | bot-ai | D005 | botController.ts (calculateTeamSynergy, team-support style) | integration.test.ts (6 rounds 2v2) | qa-result.md (✅ PASS) | — | ✅ |
+| REQ-037 | Bots usable for local testing | Bot 9 | bot-ai | D006, D007 | botController.ts (createBot factory), index.ts (exports) | integration.test.ts | qa-result.md (✅ PASS) | — | ✅ |
+| REQ-038 | Bots usable by balance simulator | Bot 10 | bot-ai | D006, D008 | botController.ts (createBot, DEFAULT_BOT_CONFIG exports) | — | qa-result.md (✅ PASS — createBot export works programmatically) | — | ✅ |
+| REQ-039 | Bot behavior must be strategic | Bot 11 | bot-ai | D006 | botController.ts (heuristic lane/card scoring, tactical evaluation) | — | qa-result.md (✅ PASS) | — | ✅ |
+| REQ-040 | Bot difficulty selectable before match | Bot 12 | bot-ai | D006 | botController.ts (BotConfig, validateBotConfig) | — | qa-result.md (⚠️ PARTIAL — configurable via createBot but not in GameConfig) | — | 🔄 |
+| REQ-041 | Bots support strategic styles (7 types) | Bot Style | bot-ai | D006 | botController.ts (STYLE_MULTIPLIERS: 7 styles) | integration.test.ts | qa-result.md (✅ PASS) | — | ✅ |
+| REQ-042 | Difficulty controls quality, style controls personality | Bot Style | bot-ai | D006 | botController.ts (difficulty=noise/depth; style=weight profiles) | — | qa-result.md (✅ PASS — clear separation of concerns) | — | ✅ |
 
 ### Anti-Dominant Strategy Requirements
 
@@ -123,9 +116,9 @@ NOTE: The Art, Audio, Motion, and Game Feel requirements share IDs REQ-023 throu
 | ID | Description | Source | Node | Decision | Impl | Tests | QA | Review | Status |
 |---|---|---|---|---|---|---|---|---|---|
 | REQ-053 | Expo React Native + TypeScript | Tech 1 | root | — | mobile-game/ | — | — | — | 🔄 |
-| REQ-054 | Local mock multiplayer first | Tech 2 | multiplayer-system | D007 | multiplayer/types.ts, multiplayer/mockMultiplayerAdapter.ts, multiplayer/index.ts | — | — | — | ✅ |
-| REQ-055 | Supabase Realtime later (online) | Tech 3 | root | D007 | — | — | — | — | 🔄 |
-| REQ-056 | Playable prototype before final approval | Tech 4 | root | — | — | — | — | — | 🔄 |
+| REQ-054 | Local mock multiplayer first | Tech 2 | multiplayer-system | D007 | multiplayer/types.ts, multiplayer/mockMultiplayerAdapter.ts, multiplayer/index.ts | multiplayer/__tests__/ — MISSING | qa-result.md (BLOCKED — C1, C2, C3) | — | 🔄 **BLOCKED** |
+| REQ-055 | Supabase Realtime later (online) | Tech 3 | root | D007 | — | — | qa-result.md (M2 — documentation missing) | — | 🔄 **BLOCKED** |
+| REQ-056 | Playable prototype before final approval | Tech 4 | root | — | multiplayer/mockMultiplayerAdapter.ts, state/gameStore.ts | — | qa-result.md (BLOCKED) | — | 🔄 **BLOCKED** |
 
 ### Documentation Requirements
 
@@ -146,7 +139,7 @@ NOTE: The Art, Audio, Motion, and Game Feel requirements share IDs REQ-023 throu
 |---|---|---|---|---|---|---|
 | Core Game | 22 | 22 | 0 | 0 |
 | Localization & Platform | 8 | 0 | 8 | 0 |
-| Bot | 12 | 0 | 12 | 0 |
+| Bot | 12 | 12 | 0 | 0 |
 | Anti-Dominant Strategy | 10 | 6 | 4 | 0 |
 | Art, Audio, Motion, Game Feel | 11 | 0 | 11 | 0 |
 | Technical | 4 | 1 | 3 | 0 |
