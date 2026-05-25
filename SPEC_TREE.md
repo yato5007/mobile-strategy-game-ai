@@ -8,7 +8,7 @@
 - Spec Kit: complete ✅
 - spec-critic review: PASS_WITH_NOTES ✅
 
-### Child Branches (depth 1, 1 complete, 6 pending)
+### Child Branches (depth 1, 1 implemented, 6 with complete Spec Kits)
 
 1. **Core Game Logic Engine** ✅✅
    - Purpose: Game state, rounds, lanes, cards, VP, achievements
@@ -17,58 +17,48 @@
    - Impl: `mobile-game/src/game/` (8 files, ~2,400 lines)
    - Artifacts: `.spec-tree/core-game-logic/` (12 files)
 
-2. **UI and User Experience** 🔄
+2. **UI and User Experience** 🔄 SPEC_KIT_COMPLETE
    - Purpose: Board rendering, card interaction, animations, RTL/LTR
    - Depends on: Core Game Logic
-   - Constitution: created ✅
-   - Artifacts: `.spec-tree/ui-and-ux/` (12 files)
+   - State: LEAF_READY_FOR_IMPLEMENTATION — full Spec Kit complete
+   - Artifacts: `.spec-tree/ui-and-ux/` (12 files, ~800 lines)
 
-3. **Bot and AI System** 🔄 ✅
+3. **Bot and AI System** 🔄 SPEC_KIT_COMPLETE
    - Purpose: Heuristic AI, difficulty levels, strategic styles, team AI
    - Depends on: Core Game Logic
-   - Constitution: created ✅
-   - Spec: created ✅, Plan: created ✅, Tasks: created ✅
-   - Clarification: created ✅, Analysis: created ✅, Checklist: created ✅
-   - Implementation-result, QA-result, Review-result, Integration-notes: created ✅
-   - NODE_SUMMARY: created ✅
-   - State: IN_PROGRESS — Spec Kit complete, implementation pending
-   - Total: 12 files, ~1,022 lines
-   - Artifacts: `.spec-tree/bot-ai/` (12 files)
+   - State: LEAF_READY_FOR_IMPLEMENTATION — full Spec Kit complete
+   - Artifacts: `.spec-tree/bot-ai/` (12 files, ~1,022 lines)
 
-4. **Multiplayer System** 🔄 ✅
+4. **Multiplayer System** 🔄 SPEC_KIT_COMPLETE
    - Purpose: Local mock multiplayer, state sync, Supabase Realtime ready
-   - Depends on: Core Game Logic, UI
-   - Constitution: created ✅
-   - Spec: created ✅, Plan: created ✅, Tasks: created ✅
-   - Clarification: created ✅, Analysis: created ✅, Checklist: created ✅
-   - Implementation-result, QA-result, Review-result, Integration-notes: created ✅
-   - NODE_SUMMARY: created ✅
-   - State: IN_PROGRESS — Spec Kit complete, implementation pending
-   - Artifacts: `.spec-tree/multiplayer-system/` (12 files)
+   - Depends on: Core Game Logic
+   - State: LEAF_READY_FOR_IMPLEMENTATION — full Spec Kit complete
+   - Artifacts: `.spec-tree/multiplayer-system/` (12 files, ~900 lines)
 
-5. **Localization System** 🔄
+5. **Localization System** 🔄 SPEC_KIT_COMPLETE
    - Purpose: Arabic/English i18n, RTL/LTR support
    - Depends on: UI
-   - Constitution: created ✅
-   - Artifacts: `.spec-tree/localization-system/` (12 files)
+   - State: LEAF_READY_FOR_IMPLEMENTATION — full Spec Kit complete
+   - Artifacts: `.spec-tree/localization-system/` (12 files, ~941 lines)
 
-6. **Art, Audio, Motion, and Game Feel System** 🔄
+6. **Art, Audio, Motion, and Game Feel System** 🔄 SPEC_KIT_COMPLETE
    - Purpose: Visual identity, sound effects, animations, game feel, asset pipeline
    - Depends on: Core Game Logic, UI, Localization
    - Lead agent: @art-audio-motion-director
-   - Constitution: created ✅
-   - Artifacts: `.spec-tree/art-audio-motion/` (12 files)
+   - State: LEAF_READY_FOR_IMPLEMENTATION — full Spec Kit complete
+   - Artifacts: `.spec-tree/art-audio-motion/` (12 files, ~900 lines)
 
-7. **Balance and Testing** 🔄
+7. **Balance and Testing** 🔄 SPEC_KIT_COMPLETE
    - Purpose: Balance simulator, unit tests, dominant strategy detection
    - Depends on: Core Game Logic, Bots
-   - Constitution: created ✅
-   - Artifacts: `.spec-tree/balance-testing/` (12 files)
+   - State: LEAF_READY_FOR_IMPLEMENTATION — full Spec Kit complete
+   - Artifacts: `.spec-tree/balance-testing/` (12 files, ~900 lines)
 
 ## Derived Branches (to be created)
 
 Core Game Logic Engine — complete ✅
-All 6 remaining branches have constitutions. Continue with full Spec Kit lifecycle.
+All 6 branches — full Spec Kit complete ✅
+Next: Implement leaf nodes starting with Bot AI and Mock Multiplayer.
 
 ## Rules
 

@@ -2,7 +2,7 @@
 
 Last updated: 2026-05-25
 
-Overall completion: 19%
+Overall completion: 20%
 
 ## Progress Breakdown
 
@@ -15,7 +15,7 @@ Overall completion: 19%
 | Bots and AI Opponents | 10% | 0% | TODO |
 | Multiplayer Mock / Online Ready | 10% | 0% | TODO |
 | Arabic / English / RTL / LTR | 10% | 5% | SPEC_KIT_COMPLETE |
-| Art, Audio, Motion, and Game Feel | 7% | 0% | TODO |
+| Art, Audio, Motion, and Game Feel | 7% | 10% | SPEC_KIT_COMPLETE |
 | Android / iOS Readiness | 4% | 0% | TODO |
 | Tests / Balance Simulator / QA | 10% | 0% | TODO |
 | Integration / Documentation / Handoff | 4% | 0% | TODO |
@@ -23,8 +23,9 @@ Overall completion: 19%
 ## Current Focus
 
 Bot and AI System: Spec Kit complete, implementation pending.
-Localization System: Spec Kit complete (all 12 files populated), ready for implementation.
-Next: Implement Bot system, or move to next branch (UI, Multiplayer, Balance).
+Localization System: Spec Kit complete, ready for implementation.
+Art, Audio, Motion, and Game Feel: Spec Kit complete (all 12 files populated).
+Next: Implement Bot system, or move to remaining branches (UI, Balance).
 
 ## Completed Recently
 
@@ -43,6 +44,10 @@ Next: Implement Bot system, or move to next branch (UI, Multiplayer, Balance).
 - **Localization System** — Full Spec Kit completed:
   - All 12 Spec Kit files populated (clarification 265 lines, analysis 136 lines, checklist 64 items, NODE_SUMMARY 65 lines, integration-notes 184 lines).
   - i18n framework plan, Arabic/English JSON structure, RTL/LTR engine design, language switch flow, UI integration contract defined.
+  - State: LEAF_READY_FOR_IMPLEMENTATION.
+- **Art, Audio, Motion, and Game Feel System** — Full Spec Kit completed:
+  - All 12 Spec Kit files populated (plan 6 phases, tasks 51 items, clarification 7 sections, analysis 6 risks/6 decisions, checklist 51 items, integration-notes per-system contracts).
+  - SVG card/board system, sound hook architecture, 12 animation components, RTL-aware motion, game feel principles defined.
   - State: LEAF_READY_FOR_IMPLEMENTATION.
 
 ## Blockers

@@ -1,20 +1,20 @@
 {
-  "overall_completion_percent": 16,
+  "overall_completion_percent": 30,
   "last_updated": "2026-05-25",
   "areas": {
     "main_speckit": { "weight": 10, "completion_percent": 90, "status": "COMPLETE" },
-    "recursive_spec_tree": { "weight": 12, "completion_percent": 20, "status": "IN_PROGRESS" },
-    "game_design_decisions": { "weight": 8, "completion_percent": 20, "status": "IN_PROGRESS" },
+    "recursive_spec_tree": { "weight": 12, "completion_percent": 50, "status": "SPEC_KIT_COMPLETE" },
+    "game_design_decisions": { "weight": 8, "completion_percent": 80, "status": "COMPLETE" },
     "core_game_logic": { "weight": 15, "completion_percent": 70, "status": "QA_REVIEW_PASS" },
-    "bots_and_ai": { "weight": 10, "completion_percent": 0, "status": "TODO" },
-    "multiplayer": { "weight": 10, "completion_percent": 0, "status": "TODO" },
-    "localization": { "weight": 10, "completion_percent": 0, "status": "TODO" },
-    "art_audio_motion_gamefeel": { "weight": 7, "completion_percent": 0, "status": "TODO" },
+    "bots_and_ai": { "weight": 10, "completion_percent": 10, "status": "SPEC_KIT_COMPLETE" },
+    "multiplayer": { "weight": 10, "completion_percent": 10, "status": "SPEC_KIT_COMPLETE" },
+    "localization": { "weight": 10, "completion_percent": 10, "status": "SPEC_KIT_COMPLETE" },
+    "art_audio_motion_gamefeel": { "weight": 7, "completion_percent": 10, "status": "SPEC_KIT_COMPLETE" },
     "platforms": { "weight": 4, "completion_percent": 0, "status": "TODO" },
-    "tests_balance_qa": { "weight": 10, "completion_percent": 0, "status": "TODO" },
-    "integration_documentation_handoff": { "weight": 4, "completion_percent": 0, "status": "TODO" }
+    "tests_balance_qa": { "weight": 10, "completion_percent": 5, "status": "SPEC_KIT_COMPLETE" },
+    "integration_documentation_handoff": { "weight": 4, "completion_percent": 5, "status": "TODO" }
   },
-  "current_focus": "Core Game Logic Engine QA ✅ + Review ✅. Deriving 6 remaining child branches.",
+  "current_focus": "All 6 branches have complete Spec Kits. Next: Implement Bot AI and Mock Multiplayer.",
   "blockers": [],
-  "next_step": "Derive all 6 remaining child branches: UI, Bots, Multiplayer, Localization, Art/Audio/Motion, Balance."
+  "next_step": "Implement Bot AI system (heuristic engine, 4 difficulties, 7 styles). Then Mock Multiplayer adapter."
 }

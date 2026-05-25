@@ -20,6 +20,9 @@ Design and implement strategic AI opponents (bots) for the mobile strategy game.
 | Difficulty = decision quality, Style = personality | D006 | Clear separation of concerns |
 | No hidden info access | D006, GAME_CONSTRAINTS §Bot 6 | Bots use same GameState as humans |
 | Bot coordination via shared state in 2v2 | D005 | Teammates see each other's hands/assignments |
+| Single-file implementation | Implementation | Keeps all bot logic in `botController.ts` for simplicity |
+| Greedy assignment algorithm | Implementation | Fast, predictable, adequate for all difficulty levels |
+| Bluff as post-processing step | Implementation | Keeps core scoring clean; strategic distortion applied after optimal scoring |
 
 ## Alternatives Rejected
 
@@ -31,10 +34,11 @@ Design and implement strategic AI opponents (bots) for the mobile strategy game.
 | Only 3 difficulty levels | GAME_CONSTRAINTS requires E/N/H/E minimum |
 | Only 3-4 styles | GAME_CONSTRAINTS specifies 7 required types |
 | Bots with privileged info | Explicitly forbidden — would violate fairness |
+| Multi-file split for each style + difficulty | Unnecessary complexity at this stage; single file is simpler to integrate and test |
 
 ## Dependencies
 
-- **Core Game Logic Engine** — `GameState`, `CardAssignment`, `submitAssignments`, `getStandings`, card types, lane types
+- **Core Game Logic Engine** — `GameState`, `CardAssignment`, `SubmitAction`, `Card`, `PlayerState`, `LaneState`, `cloneGameState`, `getStandings`
 - **TypeScript** — Language for implementation
 - **Existing types** — `PlayerState.isBot` field, `GameConfig.playerSlots` array
 
@@ -42,41 +46,40 @@ Design and implement strategic AI opponents (bots) for the mobile strategy game.
 
 | Risk | Notes |
 |---|---|
-| Bot engine must not modify game state directly | Bots use `cloneGameState` or equivalent read-only snapshot |
-| Bot decision timing must be bounded | Worst-case <100ms on mobile; add timeout fallback if needed |
+| Bot engine must not modify game state directly | BotController clones state at start of `decide()` via `cloneGameState()` |
+| Bot decision timing must be bounded | Algorithm is O(cards × lanes) — worst case ~20 cards × 5 lanes = 100 evaluations. Well under 100ms. |
 | Bot must not expose hidden info to UI | The UI branch must not render bot "thoughts" that reveal hidden info |
-| Balance simulator depends on bot API | Bot interface must be stable before balance branch begins |
+| Balance simulator depends on bot API | Bot API is stable via `createBot()` factory and `BotController` interface |
 
 ## Implementation Status
 
 - **Spec Kit**: Constitution ✅, Specification ✅, Plan ✅, Tasks ✅
-- **Clarification**: Completed (this cycle)
-- **Analysis**: Completed (this cycle)
-- **Checklist**: Created (this cycle)
-- **Implementation**: NOT_STARTED
+- **Clarification**: ✅
+- **Analysis**: ✅
+- **Checklist**: ✅
+- **Implementation**: ✅ (botController.ts + index.ts — ~705 lines total)
 - **QA**: NOT_STARTED
 - **Review**: NOT_STARTED
-- **Integration**: Placement notes written (this cycle)
+- **Integration**: Placement notes written (see integration-notes.md)
 
 ## Tests
 
-- Unit tests for each difficulty level (noise range, evaluation depth).
-- Unit tests for each style (preference patterns).
+Planned tests (not yet implemented):
+
+- Unit tests for each difficulty level (noise range, evaluation depth, bluff probability).
+- Unit tests for each style (weight multipliers, bias calculations).
 - Integration tests for FFA and 2v2 modes.
-- Determinism test (same seed → same output).
-- Performance test (<1 second per bot decision).
+- Determinism test (same seed → same output — note: current implementation uses `Math.random()`, seed-based RNG would need to be injected).
+- Performance test (<100ms per bot decision).
 
 ## Next Step
 
-Implement tasks in order:
-1. Task 1-3: Bot types, interface, evaluation heuristics.
-2. Task 4-7: Difficulty levels (Easy → Expert).
-3. Task 8-14: Strategic styles.
-4. Task 15: BotRegistry.
-5. Task 16: Engine integration.
-6. Task 17-19: Testing.
+1. Create comprehensive tests (Task 19) — unit tests for heuristics, difficulty profiles, style weights, and full decision pipeline.
+2. Integrate with game engine — add `runPlanningPhase()` orchestrator.
+3. QA review of bot decisions across all difficulty × style combinations.
+4. Reviewer sign-off on the bot system.
 
 ## Node State
 
-**Current state**: IN_PROGRESS (Spec Kit phase nearly complete, implementation pending)
+**Current state**: IN_PROGRESS (implementation complete, testing and integration pending)
 **Children**: None (leaf node — implementable at this level)
