@@ -23,11 +23,13 @@
    - State: LEAF_READY_FOR_IMPLEMENTATION — full Spec Kit complete
    - Artifacts: `.spec-tree/ui-and-ux/` (12 files, ~800 lines)
 
-3. **Bot and AI System** 🔄 SPEC_KIT_COMPLETE
+3. **Bot and AI System** ✅ IMPLEMENTED + QA
    - Purpose: Heuristic AI, difficulty levels, strategic styles, team AI
    - Depends on: Core Game Logic
-   - State: LEAF_READY_FOR_IMPLEMENTATION — full Spec Kit complete
-   - Artifacts: `.spec-tree/bot-ai/` (12 files, ~1,022 lines)
+   - State: IMPLEMENTED — Spec Kit ✅, Impl ✅, QA ✅ (PASS_WITH_NOTES)
+   - Artifacts: `.spec-tree/bot-ai/` (12 files, ~1,300 lines)
+   - Impl: `mobile-game/src/bot/` (botController.ts ~1,300 lines, index.ts)
+   - QA: `.spec-tree/bot-ai/qa-result.md` — PASS_WITH_NOTES
 
 4. **Multiplayer System** 🔄 SPEC_KIT_COMPLETE
    - Purpose: Local mock multiplayer, state sync, Supabase Realtime ready

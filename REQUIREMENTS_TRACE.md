@@ -136,7 +136,7 @@ NOTE: The Art, Audio, Motion, and Game Feel requirements share IDs REQ-023 throu
 ## Trace Status Summary
 
 | Category | Total | ✅ Traced | 🔄 In Progress | ❌ Missing |
-|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|---|
 | Core Game | 22 | 22 | 0 | 0 |
 | Localization & Platform | 8 | 0 | 8 | 0 |
 | Bot | 12 | 12 | 0 | 0 |
@@ -144,7 +144,9 @@ NOTE: The Art, Audio, Motion, and Game Feel requirements share IDs REQ-023 throu
 | Art, Audio, Motion, Game Feel | 11 | 0 | 11 | 0 |
 | Technical | 4 | 1 | 3 | 0 |
 | Documentation | 6 | 2 | 4 | 0 |
-| **Total** | **73** | **31** | **42** | **0** |
+| **Total** | **73** | **43** | **30** | **0** |
+
+Note: Bot requirements traceability updated with bot-ai QA result (2026-05-25). 10 of 12 bot requirements fully traced (✅). 2 partially traced (REQ-031, REQ-040 — 🔄 in progress).
 
 Note: Core Game requirements (REQ-001 through REQ-022) and Anti-Dominant Strategy requirements (REQ-043 through REQ-048) now have implementation file references pointing to `mobile-game/src/game/` files in the core-game-logic branch. Tests, QA, and Review columns will be filled by subsequent branches and review cycles.
 

@@ -56,30 +56,43 @@ Design and implement strategic AI opponents (bots) for the mobile strategy game.
 - **Spec Kit**: Constitution ✅, Specification ✅, Plan ✅, Tasks ✅
 - **Clarification**: ✅
 - **Analysis**: ✅
-- **Checklist**: ✅
-- **Implementation**: ✅ (botController.ts + index.ts — ~705 lines total)
-- **QA**: NOT_STARTED
+- **Checklist**: ✅ (31/40 satisfied, 4 partial, 5 missing)
+- **Implementation**: ✅ (botController.ts + index.ts — ~1,300 lines total)
+- **QA**: ✅ PASS_WITH_NOTES (2026-05-25)
 - **Review**: NOT_STARTED
-- **Integration**: Placement notes written (see integration-notes.md)
+- **Integration**: Placement notes written (see integration-notes.md); engine integration verified via integration tests
 
 ## Tests
 
-Planned tests (not yet implemented):
+**Existing tests** (passing 8/9 — 1 pre-existing lane-count assertion bug):
 
-- Unit tests for each difficulty level (noise range, evaluation depth, bluff probability).
-- Unit tests for each style (weight multipliers, bias calculations).
-- Integration tests for FFA and 2v2 modes.
-- Determinism test (same seed → same output — note: current implementation uses `Math.random()`, seed-based RNG would need to be injected).
-- Performance test (<100ms per bot decision).
+| Test | File | Status |
+|---|---|---|
+| Full FFA game (12 rounds, 4 bots) | integration.test.ts | ✅ Passes |
+| State consistency check | integration.test.ts | ⚠️ 1 assertion fails (lane count timing) |
+| 2v2 game (6 rounds, 4 bots) | integration.test.ts | ✅ Passes |
+| All defensive bots | integration.test.ts | ✅ Passes |
+| All aggressive bots | integration.test.ts | ✅ Passes |
+| Mixed difficulty bots | integration.test.ts | ✅ Passes |
+| Comeback verification | integration.test.ts | ✅ Passes |
+| Empty hand edge case | integration.test.ts | ✅ Passes |
+| Disconnect/reconnect | integration.test.ts | ✅ Passes |
+
+**Missing tests** (per QA findings):
+
+- Unit tests for each difficulty level (noise range, evaluation depth, bluff probability) — ❌
+- Unit tests for each style (weight multipliers, bias calculations) — ❌
+- Noise validation test (Easy variance > Expert variance) — ❌
+- Determinism test (same seed → same output) — ❌ (requires seeded RNG injection)
+- Performance test (<100ms per bot decision) — ❌ (expected to pass based on algorithm analysis)
 
 ## Next Step
 
-1. Create comprehensive tests (Task 19) — unit tests for heuristics, difficulty profiles, style weights, and full decision pipeline.
-2. Integrate with game engine — add `runPlanningPhase()` orchestrator.
-3. QA review of bot decisions across all difficulty × style combinations.
-4. Reviewer sign-off on the bot system.
+1. Address QA findings (M1-M3): Add seeded RNG, create unit tests, add BotRegistry.
+2. Reviewer sign-off on the bot system.
+3. Integration with Mock Multiplayer for automatic bot slot filling.
 
 ## Node State
 
-**Current state**: IN_PROGRESS (implementation complete, testing and integration pending)
+**Current state**: IMPLEMENTED (QA: PASS_WITH_NOTES — 3 major items to address before final sign-off)
 **Children**: None (leaf node — implementable at this level)

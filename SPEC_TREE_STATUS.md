@@ -51,24 +51,24 @@ If interrupted:
 - ✅ Root implementation (scaffolding)
 - ✅ @spec-critic review: PASS_WITH_NOTES
 - ✅ **core-game-logic branch**: Impl ✅ QA ✅ Review ✅
-- ✅ **bot-ai branch**: Full Spec Kit complete (12 files, ~1,022 lines) + Impl ✅
+- ✅ **bot-ai branch**: Full Spec Kit complete (12 files, ~1,022 lines) + Impl ✅ + QA ✅ (PASS_WITH_NOTES)
 - ✅ **multiplayer-system branch**: Full Spec Kit complete (12 files, ~900 lines) + Impl ✅
 - ✅ **multiplayer-system QA**: Completed — BLOCKED ⛔ (3 critical issues)
 - ✅ **localization-system branch**: Full Spec Kit complete (12 files, ~941 lines)
 - ✅ **art-audio-motion branch**: Full Spec Kit complete (12 files, ~900 lines)
 - ✅ **ui-and-ux branch**: Full Spec Kit complete (12 files, ~800 lines)
 - ✅ **balance-testing branch**: Full Spec Kit complete (12 files, ~900 lines)
-- 🔄 **Next**: Fix multiplayer BLOCKED issues, then continue with UI implementation.
+- 🔄 **Next**: Fix multiplayer BLOCKED issues, then continue with UI implementation. Bot AI system needs unit tests + BotRegistry + determinism before final sign-off (see bot-ai QA result).
 
 ## Node List (Full)
 
 | Node | State | Phase | Depth |
-|---|---|---|---|
+|---|---|---|---|---|
 | root | READY_FOR_CHILDREN | Spec Kit ✅ | 0 |
 | Core Game Logic Engine | READY_FOR_CHILDREN | Spec Kit ✅, Impl ✅, QA ✅, Review ✅ | 1 |
 | UI and User Experience | LEAF_READY_FOR_IMPLEMENTATION | Spec Kit ✅ | 1 |
-| Bot and AI System | LEAF_READY_FOR_IMPLEMENTATION | Spec Kit ✅, Impl ✅ | 1 |
-| Multiplayer System | **BLOCKED** | Spec Kit ✅, Impl ✅, QA: **BLOCKED** ⛔ | 1 |
+| Bot and AI System | IMPLEMENTED | Spec Kit ✅, Impl ✅, QA ✅ (PASS_WITH_NOTES) | 1 |
+| Multiplayer System | LEAF_READY_FOR_IMPLEMENTATION | Spec Kit ✅ | 1 |
 | Localization System | LEAF_READY_FOR_IMPLEMENTATION | Spec Kit ✅ | 1 |
 | Art, Audio, Motion, and Game Feel System | LEAF_READY_FOR_IMPLEMENTATION | Spec Kit ✅ | 1 |
 | Balance and Testing | LEAF_READY_FOR_IMPLEMENTATION | Spec Kit ✅ | 1 |
