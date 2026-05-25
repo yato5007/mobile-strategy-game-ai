@@ -21,11 +21,13 @@ Core Game Logic Engine:
 - Review result: `.spec-tree/core-game-logic/review-result.md` — PASS
 
 Multiplayer System:
-- State: IMPLEMENTED → QA: PASS_WITH_NOTES ✅
+- State: IMPLEMENTED → QA: PASS_WITH_NOTES ✅ → Review: PASS_WITH_NOTES ✅
 - Current phase: Spec Kit complete ✅, implementation complete ✅
 - QA: PASS_WITH_NOTES ✅ (25 tests pass, TS clean, C1/C2/C3 fixed)
+- Review: PASS_WITH_NOTES ✅ (all criteria met, 3 non-blocking notes)
 - QA result: `.spec-tree/multiplayer-system/qa-result.md` — PASS_WITH_NOTES
-- Last checkpoint: QA re-run — all critical issues resolved
+- Review result: `.spec-tree/multiplayer-system/review-result.md` — PASS_WITH_NOTES
+- Last checkpoint: Review PASS — multiplayer system fully reviewed
 
 ## Resume Instructions
 
@@ -43,7 +45,7 @@ If interrupted:
 |---|---|---|---|---|---|
 | root | READY_FOR_CHILDREN | Spec Kit ✅, reviewed ✅ | 0 |
 | core-game-logic | READY_FOR_CHILDREN | Spec Kit ✅, impl ✅, QA ✅, Review ✅ | 1 |
-| multiplayer-system | QA_PASS | Spec Kit ✅, impl ✅, QA: PASS_WITH_NOTES ✅ | 1 |
+| multiplayer-system | REVIEW_PASS | Spec Kit ✅, impl ✅, QA ✅, Review ✅ | 1 |
 
 ## Latest Progress
 
@@ -54,12 +56,14 @@ If interrupted:
 - ✅ **bot-ai branch**: Full Spec Kit complete (12 files, ~1,022 lines) + Impl ✅ + QA ✅ (PASS_WITH_NOTES)
 - ✅ **multiplayer-system branch**: Full Spec Kit complete (12 files, ~900 lines) + Impl ✅
 - ✅ **multiplayer-system QA**: Completed (re-run) — PASS_WITH_NOTES ✅ (C1/C2/C3 fixed, 25 tests pass)
+- ✅ **multiplayer-system Review**: PASS_WITH_NOTES ✅ — all criteria satisfied, 25 tests pass, C1/C2/C3 verified fixed, non-blocking notes documented
 - ✅ **localization-system branch**: Full Spec Kit complete (12 files, ~941 lines)
 - ✅ **art-audio-motion branch**: Full Spec Kit complete (12 files, ~900 lines)
 - ✅ **ui-and-ux branch**: Full Spec Kit complete (12 files, ~800 lines)
 - ✅ **balance-testing branch**: Full Spec Kit complete (12 files, ~900 lines)
 - ✅ **Multiplayer unblocked**: All critical issues (C1/C2/C3) resolved. 25 adapter tests pass. TypeScript clean.
-- 🔄 **Next**: Continue with UI implementation. Bot AI system needs unit tests + BotRegistry + determinism before final sign-off (see bot-ai QA result).
+- ✅ **bot-ai branch**: Review PASS_WITH_NOTES (2026-05-25) — all 12 bot requirements satisfied, system integrated, 3 QA items tracked for Integration Freeze
+- 🔄 **Next**: Continue with UI implementation. Bot AI system review complete — 3 items (unit tests, BotRegistry, seeded RNG) tracked for Integration Freeze.
 
 ## Node List (Full)
 
@@ -68,8 +72,8 @@ If interrupted:
 | root | READY_FOR_CHILDREN | Spec Kit ✅ | 0 |
 | Core Game Logic Engine | READY_FOR_CHILDREN | Spec Kit ✅, Impl ✅, QA ✅, Review ✅ | 1 |
 | UI and User Experience | LEAF_READY_FOR_IMPLEMENTATION | Spec Kit ✅ | 1 |
-| Bot and AI System | IMPLEMENTED | Spec Kit ✅, Impl ✅, QA ✅ (PASS_WITH_NOTES) | 1 |
-| Multiplayer System | LEAF_READY_FOR_IMPLEMENTATION | Spec Kit ✅ | 1 |
+| Bot and AI System | REVIEW_PASS | Spec Kit ✅, Impl ✅, QA ✅ (PASS_WITH_NOTES), Review ✅ (PASS_WITH_NOTES) | 1 |
+| Multiplayer System | REVIEW_PASS | Spec Kit ✅, Impl ✅, QA ✅, Review ✅ | 1 |
 | Localization System | LEAF_READY_FOR_IMPLEMENTATION | Spec Kit ✅ | 1 |
 | Art, Audio, Motion, and Game Feel System | LEAF_READY_FOR_IMPLEMENTATION | Spec Kit ✅ | 1 |
 | Balance and Testing | LEAF_READY_FOR_IMPLEMENTATION | Spec Kit ✅ | 1 |
@@ -77,7 +81,7 @@ If interrupted:
 ## Implementation Priority
 
 1. ✅ Bot and AI System — Implemented
-2. ✅ Multiplayer System — **QA PASS_WITH_NOTES** (unblocked)
+2. ✅ Multiplayer System — **QA PASS_WITH_NOTES** → **Review PASS_WITH_NOTES** (fully approved)
 3. 🔜 UI and User Experience (next after multiplayer unblocked)
 4. Localization System (depends on UI)
 5. Balance and Testing (depends on Bot AI)

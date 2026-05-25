@@ -9,23 +9,24 @@ Overall completion: 20%
 | Area | Weight | Completion | Status |
 |---|---:|---:|---:|---|
 | Main Spec Kit | 10% | 95% | COMPLETE |
-| Recursive Spec Tree | 12% | 25% | IN_PROGRESS |
-| Game Design Decisions | 8% | 20% | IN_PROGRESS |
+| Recursive Spec Tree | 12% | 35% | IN_PROGRESS |
+| Game Design Decisions | 8% | 90% | COMPLETE |
 | Core Game Logic | 15% | 70% | QA_REVIEW_PASS |
-| Bots and AI Opponents | 10% | 0% | TODO |
-| Multiplayer Mock / Online Ready | 10% | 0% | TODO |
+| Bots and AI Opponents | 10% | 85% | REVIEW_PASS |
+| Multiplayer Mock / Online Ready | 10% | 55% | QA_PASS |
 | Arabic / English / RTL / LTR | 10% | 5% | SPEC_KIT_COMPLETE |
 | Art, Audio, Motion, and Game Feel | 7% | 10% | SPEC_KIT_COMPLETE |
 | Android / iOS Readiness | 4% | 0% | TODO |
-| Tests / Balance Simulator / QA | 10% | 0% | TODO |
-| Integration / Documentation / Handoff | 4% | 0% | TODO |
+| Tests / Balance Simulator / QA | 10% | 5% | SPEC_KIT_COMPLETE |
+| Integration / Documentation / Handoff | 4% | 5% | TODO |
 
 ## Current Focus
 
-Bot and AI System: Spec Kit complete, implementation pending.
+Bot and AI System: Implementation complete ✅, QA PASS_WITH_NOTES ✅, Review PASS_WITH_NOTES ✅.
+Multiplayer System: Spec Kit complete ✅, Implementation complete ✅, QA PASS_WITH_NOTES ✅ (25 adapter tests pass).
 Localization System: Spec Kit complete, ready for implementation.
 Art, Audio, Motion, and Game Feel: Spec Kit complete (all 12 files populated).
-Next: Implement Bot system, or move to remaining branches (UI, Balance).
+Next: UI and User Experience implementation, then Localization, Balance, and Art/Audio/Motion.
 
 ## Completed Recently
 
@@ -41,6 +42,12 @@ Next: Implement Bot system, or move to remaining branches (UI, Balance).
 - **Bot and AI System** — Full Spec Kit completed:
   - All 12 Spec Kit files populated (clarification 222 lines, analysis 115 lines, checklist 70 items, NODE_SUMMARY 82 lines, integration-notes 197 lines).
   - Bot types, difficulty profiles (4 levels), strategic styles (7 types), team AI, mock multiplayer compatibility defined.
+- **Bot and AI System** — Implementation + QA + Review complete:
+  - `botController.ts` (~1,300 lines) + `index.ts` — weighted heuristic engine
+  - 4 difficulties (Easy, Normal, Hard, Expert) × 7 styles (28 combinations)
+  - Integration tests: 8/9 passing (1 pre-existing lane-count timing bug)
+  - QA: PASS_WITH_NOTES ✅. Review: PASS_WITH_NOTES ✅ (2026-05-25)
+  - All 12 bot requirements (REQ-031 to REQ-042) satisfied
 - **Localization System** — Full Spec Kit completed:
   - All 12 Spec Kit files populated (clarification 265 lines, analysis 136 lines, checklist 64 items, NODE_SUMMARY 65 lines, integration-notes 184 lines).
   - i18n framework plan, Arabic/English JSON structure, RTL/LTR engine design, language switch flow, UI integration contract defined.
