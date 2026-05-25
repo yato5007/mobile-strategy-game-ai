@@ -1,20 +1,20 @@
 {
-  "overall_completion_percent": 35,
+  "overall_completion_percent": 40,
   "last_updated": "2026-05-25",
   "areas": {
     "main_speckit": { "weight": 10, "completion_percent": 95, "status": "COMPLETE" },
-    "recursive_spec_tree": { "weight": 12, "completion_percent": 55, "status": "IN_PROGRESS" },
-    "game_design_decisions": { "weight": 8, "completion_percent": 90, "status": "COMPLETE" },
-    "core_game_logic": { "weight": 15, "completion_percent": 75, "status": "REVIEW_PASS" },
+    "recursive_spec_tree": { "weight": 12, "completion_percent": 65, "status": "IN_PROGRESS" },
+    "game_design_decisions": { "weight": 8, "completion_percent": 95, "status": "COMPLETE" },
+    "core_game_logic": { "weight": 15, "completion_percent": 80, "status": "REVIEW_PASS" },
     "bots_and_ai": { "weight": 10, "completion_percent": 85, "status": "REVIEW_PASS" },
-    "multiplayer": { "weight": 10, "completion_percent": 55, "status": "QA_PASS" },
+    "multiplayer": { "weight": 10, "completion_percent": 85, "status": "REVIEW_PASS" },
     "localization": { "weight": 10, "completion_percent": 10, "status": "SPEC_KIT_COMPLETE" },
     "art_audio_motion_gamefeel": { "weight": 7, "completion_percent": 10, "status": "SPEC_KIT_COMPLETE" },
     "platforms": { "weight": 4, "completion_percent": 0, "status": "TODO" },
-    "tests_balance_qa": { "weight": 10, "completion_percent": 5, "status": "SPEC_KIT_COMPLETE" },
+    "tests_balance_qa": { "weight": 10, "completion_percent": 10, "status": "SPEC_KIT_COMPLETE" },
     "integration_documentation_handoff": { "weight": 4, "completion_percent": 5, "status": "TODO" }
   },
-  "current_focus": "Bot AI system: REVIEW_PASS. Multiplayer: QA_PASS. Next: UI and User Experience implementation.",
+  "current_focus": "UI and User Experience implementation. Core Game Logic, Bot AI, Multiplayer all REVIEW_PASS.",
   "blockers": [],
-  "next_step": "Implement UI and User Experience branch, then Localization, Balance Testing, and Art/Audio/Motion."
+  "next_step": "Implement UI and User Experience branch (board rendering, card interaction, RTL/LTR, animations). Then Localization, Balance & Testing, and Art/Audio/Motion."
 }

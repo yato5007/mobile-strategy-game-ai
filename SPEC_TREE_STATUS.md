@@ -61,7 +61,7 @@ If interrupted:
 - ✅ **art-audio-motion branch**: Full Spec Kit complete (12 files, ~900 lines)
 - ✅ **ui-and-ux branch**: Full Spec Kit complete (12 files, ~800 lines)
 - ✅ **balance-testing branch**: Full Spec Kit complete (12 files, ~900 lines)
-- ✅ **Multiplayer unblocked**: All critical issues (C1/C2/C3) resolved. 25 adapter tests pass. TypeScript clean.
+- ✅ **Multiplayer Reviewed**: Review PASS_WITH_NOTES (2026-05-25) — all 6 multiplayer requirements satisfied, 25 tests pass, C1/C2/C3 verified fixed. Non-blocking items (Supabase docs, design alignment) tracked for future work.
 - ✅ **bot-ai branch**: Review PASS_WITH_NOTES (2026-05-25) — all 12 bot requirements satisfied, system integrated, 3 QA items tracked for Integration Freeze
 - 🔄 **Next**: Continue with UI implementation. Bot AI system review complete — 3 items (unit tests, BotRegistry, seeded RNG) tracked for Integration Freeze.
 
