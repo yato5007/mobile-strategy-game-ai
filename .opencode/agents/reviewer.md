@@ -3,13 +3,6 @@ description: Final reviewer for requirement coverage and code quality
 mode: subagent
 temperature: 0.1
 steps: 2500
-permission:
-  edit: deny
-  bash:
-    "*": ask
-    "git diff*": allow
-    "git status*": allow
-    "npm test*": allow
 ---
 
 You are the Final Reviewer.

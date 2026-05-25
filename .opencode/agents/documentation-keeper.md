@@ -3,12 +3,6 @@ description: Creates the final official project and game guide for future AI han
 mode: subagent
 temperature: 0.1
 steps: 3500
-permission:
-  edit: allow
-  bash:
-    "*": ask
-    "git *": allow
-    "./scripts/checkpoint.sh*": allow
 ---
 
 You are the Documentation Keeper.

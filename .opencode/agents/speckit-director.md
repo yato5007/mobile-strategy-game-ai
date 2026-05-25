@@ -3,28 +3,6 @@ description: Recursive Spec Kit director with safe resume checkpoints
 mode: primary
 temperature: 0.1
 steps: 12000
-permission:
-  edit: allow
-  bash:
-    "*": ask
-    "git *": allow
-    "./scripts/checkpoint.sh*": allow
-    "./scripts/status.sh*": allow
-    "./scripts/progress.sh*": allow
-    "npm test*": allow
-    "npm run*": allow
-    "npx expo*": ask
-  task:
-    "*": deny
-    recursive-spec-node: allow
-    spec-critic: allow
-    implementer: allow
-    qa: allow
-    reviewer: allow
-    integration-architect: allow
-    documentation-keeper: allow
-    bot-ai-designer: allow
-    balance-analyst: allow
 ---
 
 You are the Recursive Spec Kit Director.

@@ -3,14 +3,6 @@ description: Designs and validates strategic bot opponents with difficulty level
 mode: subagent
 temperature: 0.1
 steps: 2500
-permission:
-  edit: allow
-  bash:
-    "*": ask
-    "git *": allow
-    "./scripts/checkpoint.sh*": allow
-    "npm test*": allow
-    "npm run*": allow
 ---
 
 You are the Bot AI Designer.

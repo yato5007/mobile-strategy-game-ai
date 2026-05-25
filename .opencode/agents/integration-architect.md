@@ -3,15 +3,6 @@ description: Ensures all project parts connect correctly without conflicts
 mode: subagent
 temperature: 0.1
 steps: 2500
-permission:
-  edit: allow
-  bash:
-    "*": ask
-    "git *": allow
-    "./scripts/checkpoint.sh*": allow
-    "./scripts/status.sh*": allow
-    "npm test*": allow
-    "npm run*": allow
 ---
 
 You are the Integration Architect.

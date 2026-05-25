@@ -3,15 +3,6 @@ description: Implements only leaf tasks produced by Spec Kit
 mode: subagent
 temperature: 0.15
 steps: 5000
-permission:
-  edit: allow
-  bash:
-    "*": ask
-    "git *": allow
-    "./scripts/checkpoint.sh*": allow
-    "./scripts/status.sh*": allow
-    "npm test*": allow
-    "npm run*": allow
 ---
 
 You are the Implementer.

@@ -3,11 +3,6 @@ description: Reviews Spec Kit artifacts against constraints and tree rules
 mode: subagent
 temperature: 0.1
 steps: 1500
-permission:
-  edit: allow
-  bash:
-    "*": ask
-    "./scripts/checkpoint.sh*": allow
 ---
 
 You are the Spec Critic.
