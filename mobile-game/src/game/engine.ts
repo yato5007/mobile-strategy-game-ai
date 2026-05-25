@@ -35,6 +35,7 @@ import {
   PENALTY_SKIP_VP,
   COMEBACK_START_ROUND,
   TACTIC_RESOLUTION_ORDER,
+  PLANNING_TIME,
 } from './constants';
 
 import {
@@ -203,6 +204,7 @@ export function createGame(config: GameConfig): { game: GameState; events: GameE
       vpAwarded: { 0: 0, 1: 0, 2: 0, 3: 0 },
       assignments: { 0: [], 1: [], 2: [], 3: [] },
       streak: 0,
+      shieldedPlayers: [],
     });
   }
 
@@ -307,6 +309,7 @@ export function submitAssignments(
   game: GameState,
   playerId: PlayerId,
   assignments: CardAssignment[],
+  events: GameEventEmitter,
 ): ValidationResult {
   const validation = validateAssignment(game, playerId, assignments);
   if (!validation.valid) {
@@ -319,17 +322,27 @@ export function submitAssignments(
   player.currentAssignments = assignments;
   player.hasSubmitted = true;
 
-  // Remove assigned cards from hand
-  const cardIds = assignments.map(a => a.cardId);
-  const result = discardCards(player.hand, cardIds, player.discardPile);
-  player.hand = result.hand;
-  player.discardPile = result.discardPile;
+  // Remove assigned cards from hand (they go to lane assignments, NOT discard pile)
+  const assignedCardIds = new Set(assignments.map(a => a.cardId));
+  const remainingHand: Card[] = [];
+  const assignedCards: Card[] = [];
+
+  for (const card of player.hand) {
+    if (assignedCardIds.has(card.id)) {
+      assignedCards.push(card);
+    } else {
+      remainingHand.push(card);
+    }
+  }
+
+  player.hand = remainingHand;
 
   // Place cards in lanes
-  for (const a of assignments) {
-    const card = findCardById(a.cardId, [...result.hand, ...result.discardPile]);
-    if (card) {
-      game.lanes[a.laneIndex].assignments[playerId].push(card);
+  for (const card of assignedCards) {
+    // Find the lane this card was assigned to
+    const assignment = assignments.find(a => a.cardId === card.id);
+    if (assignment) {
+      game.lanes[assignment.laneIndex].assignments[playerId].push(card);
     }
   }
 
@@ -376,12 +389,12 @@ export function forceSubmitRemaining(game: GameState): void {
  * Transition to reveal phase.
  * All assignments become visible.
  */
-export function revealAssignments(game: GameState): void {
+export function revealAssignments(game: GameState, events: GameEventEmitter): void {
   game.roundPhase = 'reveal';
   game.phaseTimestamps.revealStartedAt = Date.now();
 
   // Process spy effects (pre-resolution, private info)
-  processSpyEffects(game);
+  processSpyEffects(game, events);
 
   events.emit({
     type: 'RevealPhase',
@@ -395,7 +408,7 @@ export function revealAssignments(game: GameState): void {
 }
 
 /** Process Spy tactic effects — emit private info to the spy player */
-function processSpyEffects(game: GameState): void {
+function processSpyEffects(game: GameState, events: GameEventEmitter): void {
   for (const player of game.players) {
     for (const assignment of player.currentAssignments) {
       const lane = game.lanes[assignment.laneIndex];
@@ -439,7 +452,7 @@ function findBestSpyTarget(game: GameState, spyerId: PlayerId): PlayerId {
 /**
  * Execute the resolution phase — resolve all lanes.
  */
-export function resolveRound(game: GameState): void {
+export function resolveRound(game: GameState, events: GameEventEmitter): void {
   game.roundPhase = 'resolution';
   game.phaseTimestamps.resolveStartedAt = Date.now();
 
@@ -449,7 +462,7 @@ export function resolveRound(game: GameState): void {
   });
 
   // Apply active play penalties first
-  applySkipPenalties(game);
+  applySkipPenalties(game, events);
 
   // Calculate base strengths per lane
   calculateLaneStrengths(game);
@@ -460,15 +473,15 @@ export function resolveRound(game: GameState): void {
   // Resolve each lane
   for (const lane of game.lanes) {
     if (!lane.isActive) continue;
-    resolveLane(game, lane.index);
+    resolveLane(game, lane.index, events);
   }
 
   // Process Ambush effects (after all lanes resolved)
-  processAmbushEffects(game);
+  processAmbushEffects(game, events);
 }
 
 /** Apply penalties for players who submitted 0 cards */
-function applySkipPenalties(game: GameState): void {
+function applySkipPenalties(game: GameState, events: GameEventEmitter): void {
   for (const player of game.players) {
     if (player.currentAssignments.length === 0 && player.isConnected) {
       player.vpTotal = Math.max(0, player.vpTotal - PENALTY_SKIP_VP);
@@ -543,9 +556,9 @@ function processTacticEffectOnLane(
         }
         case 'shield': {
           // Shield this lane for this player — block one sabotage
-          // We track this on the lane temporarily
-          (lane as any)._shieldedPlayers ??= new Set<PlayerId>();
-          (lane as any)._shieldedPlayers.add(pid);
+          if (!lane.shieldedPlayers.includes(pid)) {
+            lane.shieldedPlayers.push(pid);
+          }
           break;
         }
         case 'sabotage': {
@@ -578,8 +591,7 @@ function processTacticEffectOnLane(
 
 /** Check if a player is shielded in a lane */
 function isShielded(lane: LaneState, playerId: PlayerId): boolean {
-  const shielded = (lane as any)._shieldedPlayers as Set<PlayerId> | undefined;
-  return shielded?.has(playerId) ?? false;
+  return lane.shieldedPlayers.includes(playerId);
 }
 
 /** Determine the target of a sabotage effect */
@@ -613,7 +625,7 @@ function determineSabotageTarget(
 }
 
 /** Process ambush effects after all lanes resolved */
-function processAmbushEffects(game: GameState): void {
+function processAmbushEffects(game: GameState, events: GameEventEmitter): void {
   for (const lane of game.lanes) {
     if (!lane.isActive) continue;
     if (lane.winner === null) continue; // Tie — no ambush trigger
@@ -657,7 +669,7 @@ function processAmbushEffects(game: GameState): void {
 /**
  * Resolve a single lane — determine winner, award VP.
  */
-function resolveLane(game: GameState, laneIndex: LaneIndex): void {
+function resolveLane(game: GameState, laneIndex: LaneIndex, events: GameEventEmitter): void {
   const lane = game.lanes[laneIndex];
   const mode = game.mode;
 
@@ -828,14 +840,14 @@ function trackFirstScore(game: GameState, playerId: PlayerId): void {
 /**
  * Execute the cleanup phase.
  */
-export function processCleanup(game: GameState): void {
+export function processCleanup(game: GameState, events: GameEventEmitter): void {
   game.roundPhase = 'cleanup';
   game.phaseTimestamps.cleanupStartedAt = Date.now();
 
   const rand = createRandomFn(); // Fresh randomness for draws
 
   // Process comeback bonuses
-  processComebackBonuses(game, rand);
+  processComebackBonuses(game, rand, events);
 
   // Draw replenishment cards
   for (const player of game.players) {
@@ -850,6 +862,14 @@ export function processCleanup(game: GameState): void {
   const newAchievements = checkAchievements(game);
   for (const achievement of newAchievements) {
     game.awardedAchievements.push(achievement.id);
+    events.emit({
+      type: 'AchievementUnlocked',
+      payload: {
+        playerId: achievement.playerId,
+        achievementId: achievement.id,
+        vpReward: achievement.vpReward,
+      },
+    });
   }
 
   // Increment round counter
@@ -902,7 +922,7 @@ export function processCleanup(game: GameState): void {
 }
 
 /** Process comeback bonuses for trailing players */
-function processComebackBonuses(game: GameState, rand: () => number): void {
+function processComebackBonuses(game: GameState, rand: () => number, events: GameEventEmitter): void {
   if (game.currentRound < COMEBACK_START_ROUND) return;
 
   for (const player of game.players) {
@@ -940,7 +960,7 @@ function resetLanesForNextRound(game: GameState, rand: () => number): void {
     lane.vpAwarded = { 0: 0, 1: 0, 2: 0, 3: 0 };
     lane.assignments = { 0: [], 1: [], 2: [], 3: [] };
     // Clear temp properties
-    delete (lane as any)._shieldedPlayers;
+    lane.shieldedPlayers = [];
 
     // Update objective for active lanes
     if (lane.isActive) {

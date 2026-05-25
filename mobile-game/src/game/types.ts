@@ -113,6 +113,8 @@ export interface LaneState {
   assignments: Record<PlayerId, Card[]>;
   /** Number of consecutive rounds the same player has won this lane */
   streak: number;
+  /** Set of player IDs who have played a Shield tactic card on this lane (resolution temp) */
+  shieldedPlayers: PlayerId[];
 }
 
 // ─── Player State ──────────────────────────────────────────────
