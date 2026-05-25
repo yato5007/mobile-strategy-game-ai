@@ -1,0 +1,20 @@
+# Skill: Handoff Package
+
+Use this skill near final delivery or major review.
+
+Required files:
+- AI_HANDOFF_MANUAL.md
+- MASTER_PROJECT_PLAN.md
+- AGENTS.md
+- AI_TOOLING_GUIDE.md
+- REQUIREMENTS_TRACE.md
+- DECISIONS.md
+- SYSTEM_CONTRACTS.md
+- DESIGN_SYSTEM.md
+- SPEC_TREE.md
+- SPEC_TREE_STATUS.md
+- CONTINUITY_PROTOCOL.md
+- PROGRESS_DASHBOARD.md
+- PROJECT_PROGRESS.json
+- BUILD_DELIVERABLES.md
+- ASSET_MANIFEST.md

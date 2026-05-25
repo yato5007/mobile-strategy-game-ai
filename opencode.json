@@ -3,13 +3,16 @@
   "default_agent": "speckit-director",
   "instructions": [
     "MASTER_PROJECT_PLAN.md",
+    "AGENTS.md",
+    "AI_TOOLING_GUIDE.md",
     "CONTINUITY_PROTOCOL.md",
     "GAME_CONSTRAINTS.md",
     "SPEC_TREE_RULES.md",
     "REQUIREMENTS_TRACE.md",
     "DECISIONS.md",
     "SYSTEM_CONTRACTS.md",
-    "DESIGN_SYSTEM.md"
+    "DESIGN_SYSTEM.md",
+    "MCP_SERVERS_PLAN.md"
   ],
   "snapshot": true,
   "share": "disabled",

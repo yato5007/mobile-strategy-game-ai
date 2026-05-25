@@ -1,0 +1,18 @@
+---
+description: Project rules for the mobile strategy game
+alwaysApply: true
+---
+
+# Cursor Project Rules
+
+- Read MASTER_PROJECT_PLAN.md first.
+- Follow AGENTS.md and AI_TOOLING_GUIDE.md.
+- Do not restart from zero.
+- Do not skip Spec Kit.
+- Do not implement before tasks exist.
+- Do not add Playable Vertical Slice Rule.
+- Do not add strict deadlines.
+- Do not add fixed branch limits.
+- Keep all player-facing UI text localizable.
+- Respect Arabic RTL and English LTR.
+- Update progress, trace, decisions, and checkpoints after meaningful work.

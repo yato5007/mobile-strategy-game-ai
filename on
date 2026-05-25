@@ -1,0 +1,10 @@
+[33m6334547[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m checkpoint: Implement MockMultiplayerAdapter with full phase sync, timeout, and disconnect handling
+[33mb4593f7[m checkpoint: bot-ai: implement BotController with 4 difficulties, 7 styles, heuristic engine
+[33m36578e7[m checkpoint: art-audio-motion: completed full Spec Kit lifecycle — plan, tasks, clarification, analysis, checklist, NODE_SUMMARY, integration-notes, results stubs
+[33m7829b39[m checkpoint: Localization System: full Spec Kit lifecycle complete (all 12 files populated) — clarification, analysis, checklist, NODE_SUMMARY, implementation/QA/review stubs, integration-notes
+[33m55ca8c0[m checkpoint: Multiplayer System: all 12 Spec Kit files populated (clarification, analysis, checklist, NODE_SUMMARY, impl/qa/review results, integration-notes)
+[33m1c259c5[m checkpoint: Bot AI: populated all 8 empty Spec Kit files (clarification, analysis, checklist, NODE_SUMMARY, impl/qa/review results, integration notes). Total 12 files, ~1,022 lines. State: IN_PROGRESS.
+[33m737ec3a[m checkpoint: balance-testing: filled clarification, analysis, checklist, NODE_SUMMARY, implementation-result, qa-result, review-result, integration-notes
+[33m9e212ee[m checkpoint: all 6 remaining branches created with constitutions. Core game logic complete (Spec Kit + QA + Review). Art/Audio/Motion added as core branch.
+[33m58b9bb7[m checkpoint: core-game-logic reviewer PASS. Progress updated. Ready to derive 6 remaining branches.
+[33m2d0708c[m checkpoint: reviewer PASS for core-game-logic branch
