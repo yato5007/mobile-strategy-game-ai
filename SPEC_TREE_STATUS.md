@@ -65,7 +65,15 @@ If interrupted:
   - ✅ M1: Card tracking fixed (hand → lane only, no premature discard)
   - ✅ M4: shieldedPlayers added to LaneState, no `any` casts
 - ✅ Reviewer for core-game-logic: PASS
-- 🔄 Next: Derive remaining child branches (UI, Bots, Multiplayer, Localization, Balance & Testing, Art/Audio/Motion)
+- ✅ **Art, Audio, Motion, and Game Feel** added as core branch (agent, ASSET_PIPELINE.md, constitution, planning files updated).
+- ✅ **6 remaining branches created with constitutions:**
+  - ✅ UI and User Experience — constitution.md
+  - ✅ Bot and AI System — constitution.md
+  - ✅ Multiplayer System — constitution.md
+  - ✅ Localization System — constitution.md
+  - ✅ Art, Audio, Motion, and Game Feel System — constitution.md (agent + ASSET_PIPELINE.md)
+  - ✅ Balance and Testing — constitution.md
+- 🔄 Next: Complete full Spec Kit lifecycle for each remaining branch.
 
 ## Node List (Full)
 
@@ -82,4 +90,4 @@ If interrupted:
 
 ## Blockers
 
-None. Core Game Logic Engine is unblocked (QA PASS_WITH_NOTES). Ready for Reviewer and deriving remaining 6 child branches.
+None. Core Game Logic Engine is complete and reviewed. All 6 remaining branches have constitutions. Ready to proceed with full Spec Kit lifecycle for each branch.

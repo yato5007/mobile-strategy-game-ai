@@ -5,57 +5,59 @@
 ### Root (depth 0)
 **Lane-control simultaneous deployment strategy game**
 - State: READY_FOR_CHILDREN ✅
-- Spec Kit: complete
+- Spec Kit: complete ✅
+- spec-critic review: PASS_WITH_NOTES ✅
 
-### Child Branches (depth 1, 1 complete, 5 pending)
+### Child Branches (depth 1, 1 complete, 6 pending)
 
-1. **Core Game Logic Engine** ✅
+1. **Core Game Logic Engine** ✅✅
    - Purpose: Game state, rounds, lanes, cards, VP, achievements
    - Depends on: root
-   - State: READY_FOR_CHILDREN (Spec Kit ✅, Impl ✅, QA/Review 🔄)
-   - Children: likely depth 2 if needed (Card System, Round Engine, Achievement System)
-   - Impl: `mobile-game/src/game/` (8 files, ~1,715 lines)
+   - State: READY_FOR_CHILDREN (Spec Kit ✅, Impl ✅, QA ✅, Review ✅)
+   - Impl: `mobile-game/src/game/` (8 files, ~2,400 lines)
    - Artifacts: `.spec-tree/core-game-logic/` (12 files)
 
-2. **UI and User Experience**
+2. **UI and User Experience** 🔄
    - Purpose: Board rendering, card interaction, animations, RTL/LTR
    - Depends on: Core Game Logic
-   - Children: likely depth 2
+   - Constitution: created ✅
+   - Artifacts: `.spec-tree/ui-and-ux/` (12 files)
 
-3. **Bot and AI System**
+3. **Bot and AI System** 🔄
    - Purpose: Heuristic AI, difficulty levels, strategic styles, team AI
    - Depends on: Core Game Logic
-   - Children: likely depth 2 (Bot Engine, Difficulty Settings, Style Profiles)
+   - Constitution: created ✅
+   - Artifacts: `.spec-tree/bot-ai/` (12 files)
 
-4. **Multiplayer System**
+4. **Multiplayer System** 🔄
    - Purpose: Local mock multiplayer, state sync, Supabase Realtime ready
    - Depends on: Core Game Logic, UI
-   - Children: likely depth 2
+   - Constitution: created ✅
+   - Artifacts: `.spec-tree/multiplayer-system/` (12 files)
 
-5. **Localization System**
+5. **Localization System** 🔄
    - Purpose: Arabic/English i18n, RTL/LTR support
    - Depends on: UI
-   - Children: likely depth 2 (Translation Files, RTL Engine)
+   - Constitution: created ✅
+   - Artifacts: `.spec-tree/localization-system/` (12 files)
 
 6. **Art, Audio, Motion, and Game Feel System** 🔄
    - Purpose: Visual identity, sound effects, animations, game feel, asset pipeline
-   - Depends on: Core Game Logic, UI
-   - Constitution: created ✅
-   - Children: likely depth 2 (Asset Pipeline, Visual Identity, Audio/Motion)
+   - Depends on: Core Game Logic, UI, Localization
    - Lead agent: @art-audio-motion-director
+   - Constitution: created ✅
    - Artifacts: `.spec-tree/art-audio-motion/` (12 files)
 
-7. **Balance and Testing**
+7. **Balance and Testing** 🔄
    - Purpose: Balance simulator, unit tests, dominant strategy detection
    - Depends on: Core Game Logic, Bots
-   - Children: likely depth 2 (Balance Simulator, Test Suites)
+   - Constitution: created ✅
+   - Artifacts: `.spec-tree/balance-testing/` (12 files)
 
-### Derived Branches (to be created)
+## Derived Branches (to be created)
 
-Core Game Logic Engine — complete ✅ (created 2026-05-25)
-Remaining 6 branches to be derived by @recursive-spec-node.
-
----
+Core Game Logic Engine — complete ✅
+All 6 remaining branches have constitutions. Continue with full Spec Kit lifecycle.
 
 ## Rules
 
