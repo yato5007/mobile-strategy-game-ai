@@ -262,6 +262,14 @@ Presets وExtensions:
 
 كل قرار UI أو تفاعل يجب ألا يفترض منصة واحدة فقط إلا إذا تم توثيق ذلك.
 
+## 9a. Art, Audio, Motion, and Game Feel
+
+هذا النظام هو فرع أساسي في Recursive Spec Kit Tree بجانب Core Game Logic و UI و Bots و Multiplayer و Localization و Balance.
+
+يجب أن يمر بدورة Spec Kit كاملة بقيادة @art-audio-motion-director.
+
+المتطلبات الأساسية موثقة في GAME_CONSTRAINTS.md (Art, Audio, Motion, and Game Feel Requirements) و ASSET_PIPELINE.md و DESIGN_SYSTEM.md.
+
 ---
 
 ## 10. Multiplayer
@@ -688,15 +696,16 @@ NODE_SUMMARY.md
 | Area | Weight |
 |---|---:|
 | Main Spec Kit | 10% |
-| Recursive Spec Tree | 15% |
-| Game Design Decisions | 10% |
+| Recursive Spec Tree | 12% |
+| Game Design Decisions | 8% |
 | Core Game Logic | 15% |
 | Bots and AI Opponents | 10% |
 | Multiplayer Mock / Online Ready | 10% |
 | Arabic / English / RTL / LTR | 10% |
-| Android / iOS Readiness | 5% |
+| Art, Audio, Motion, and Game Feel | 7% |
+| Android / iOS Readiness | 4% |
 | Tests / Balance Simulator / QA | 10% |
-| Integration / Documentation / Handoff | 5% |
+| Integration / Documentation / Handoff | 4% |
 
 ---
 
@@ -1059,6 +1068,22 @@ Integration Freeze
 - اختبارات منع الاستراتيجية المهيمنة
 - اختبارات الرجوع من التأخر
 - اختبارات اللعب السلبي
+
+### 33.11 art-audio-motion-director
+
+يقود فرع Art, Audio, Motion, and Game Feel System.
+
+مسؤول عن:
+
+- قيادة دورة Spec Kit كاملة لهذا الفرع
+- الهوية البصرية العربية (ليست مجرد ترجمة)
+- نظام الألوان والخطوط والأيقونات
+- تنظيم assets وإنشاء placeholders قانونية
+- تحديد الأصوات والحركات والانتقالات
+- تحديد game feel للأحداث المهمة
+- ضمان أن كل asset قانوني وموثق
+- التنسيق مع UI و Localization و Android/iOS
+- التأكد أن النظام يدعم وضوح القرارات الإستراتيجية ولا يشتت اللاعب
 
 ---
 

@@ -100,6 +100,24 @@ No final PASS is allowed if a requirement has no trace.
 | REQ-051 | Diverse bot styles test varied strategies | Anti 9 | bot-ai | D006, D008 | — | — | — | — | 🔄 |
 | REQ-052 | Reviewer must not approve if dominant strategy exists | Anti 10 | root | D008 | — | — | — | — | 🔄 |
 
+### Art, Audio, Motion, and Game Feel Requirements
+
+| ID | Description | Source | Node | Decision | Impl | Tests | QA | Review | Status |
+|---|---|---|---|---|---|---|---|---|---|
+| REQ-023 | Arabic-first visual identity with cultural style | Art 1 | art-audio-motion | — | — | — | — | — | 🔄 |
+| REQ-024 | Art supports strategic clarity | Art 2 | art-audio-motion | — | — | — | — | — | 🔄 |
+| REQ-025 | Every major game event has visual feedback | Art 3 | art-audio-motion | — | — | — | — | — | 🔄 |
+| REQ-026 | Sound effects for key game events | Art 4 | art-audio-motion | — | — | — | — | — | 🔄 |
+| REQ-027 | Motion responsive (<300ms) with spatial awareness | Art 5 | art-audio-motion | — | — | — | — | — | 🔄 |
+| REQ-028 | All assets must have clear legal license | Art 6 | art-audio-motion | — | — | — | — | — | 🔄 |
+| REQ-029 | Placeholder assets labeled and replaceable | Art 7 | art-audio-motion | — | — | — | — | — | 🔄 |
+| REQ-030 | Game feel communicates strategic weight | Art 8 | art-audio-motion | — | — | — | — | — | 🔄 |
+| REQ-031 | Art/audio/motion must not obscure strategy | Art 9 | art-audio-motion | — | — | — | — | — | 🔄 |
+| REQ-032 | Mobile performance prioritized for all assets | Art 10 | art-audio-motion | — | — | — | — | — | 🔄 |
+| REQ-033 | ASSET_PIPELINE.md exists and documents asset system | Art Pipeline | art-audio-motion | — | ASSET_PIPELINE.md | — | — | — | 🔄 |
+
+NOTE: The Art, Audio, Motion, and Game Feel requirements share IDs REQ-023 through REQ-033 with Localization & Platform requirements. This is acceptable because they are distinct requirement categories and will be in separate sections of the final AI_HANDOFF_MANUAL.md. The ID prefix (Ar-EN vs Art) differentiates them in the Source column.
+
 ### Technical Requirements
 
 | ID | Description | Source | Node | Decision | Impl | Tests | QA | Review | Status |
@@ -125,14 +143,15 @@ No final PASS is allowed if a requirement has no trace.
 ## Trace Status Summary
 
 | Category | Total | ✅ Traced | 🔄 In Progress | ❌ Missing |
-|---|---|---|---|---|---|
-| Core Game | 22 | 21 | 1 (BLOCKED) | 0 |
+|---|---|---|---|---|---|---|
+| Core Game | 22 | 22 | 0 | 0 |
 | Localization & Platform | 8 | 0 | 8 | 0 |
 | Bot | 12 | 0 | 12 | 0 |
 | Anti-Dominant Strategy | 10 | 6 | 4 | 0 |
+| Art, Audio, Motion, Game Feel | 11 | 0 | 11 | 0 |
 | Technical | 4 | 0 | 4 | 0 |
 | Documentation | 6 | 2 | 4 | 0 |
-| **Total** | **62** | **30** | **32** | **0** |
+| **Total** | **73** | **30** | **43** | **0** |
 
 Note: Core Game requirements (REQ-001 through REQ-022) and Anti-Dominant Strategy requirements (REQ-043 through REQ-048) now have implementation file references pointing to `mobile-game/src/game/` files in the core-game-logic branch. Tests, QA, and Review columns will be filled by subsequent branches and review cycles.
 

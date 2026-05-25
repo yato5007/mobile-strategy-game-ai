@@ -122,6 +122,19 @@ Style controls personality and strategy.
 9. Bots must use different strategic styles so the game is tested against varied plans.
 10. The final reviewer must not approve the project if winning depends on repeating the same optimal plan.
 
+## Art, Audio, Motion, and Game Feel Requirements
+
+1. The game must have a strong, coherent visual identity with an Arabic-first cultural and visual style.
+2. The art style must support strategic clarity — players must immediately understand board state, card values, lane objectives, and game phase.
+3. Every major game event must have visual feedback (card placement, reveal, lane resolution, VP changes, tactic effects, achievements, penalties, comeback, game over).
+4. Sound effects must provide non-visual feedback for key events (card actions, round transitions, tactic activation, achievements).
+5. Motion and transitions must feel responsive (under 300ms for actions) and provide spatial awareness (cards moving from hand to lanes).
+6. All assets must be legal (self-created, CC0, MIT, or purchased with clear license).
+7. Placeholder assets are allowed during development but must be clearly labeled and replaceable.
+8. The game feel must communicate strategic weight — important decisions should feel significant, not trivial.
+9. Art, audio, motion, and game feel must not distract from or obscure strategic decision-making.
+10. Performance on mobile devices must be prioritized — SVG complexity, audio compression, and animation efficiency are constraints.
+
 ## Technical Preference
 
 - Use Expo React Native and TypeScript unless Spec Kit finds a better reason.

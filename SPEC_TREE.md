@@ -37,7 +37,15 @@
    - Depends on: UI
    - Children: likely depth 2 (Translation Files, RTL Engine)
 
-6. **Balance and Testing**
+6. **Art, Audio, Motion, and Game Feel System** 🔄
+   - Purpose: Visual identity, sound effects, animations, game feel, asset pipeline
+   - Depends on: Core Game Logic, UI
+   - Constitution: created ✅
+   - Children: likely depth 2 (Asset Pipeline, Visual Identity, Audio/Motion)
+   - Lead agent: @art-audio-motion-director
+   - Artifacts: `.spec-tree/art-audio-motion/` (12 files)
+
+7. **Balance and Testing**
    - Purpose: Balance simulator, unit tests, dominant strategy detection
    - Depends on: Core Game Logic, Bots
    - Children: likely depth 2 (Balance Simulator, Test Suites)
@@ -45,7 +53,7 @@
 ### Derived Branches (to be created)
 
 Core Game Logic Engine — complete ✅ (created 2026-05-25)
-Remaining 5 branches to be derived by @recursive-spec-node.
+Remaining 6 branches to be derived by @recursive-spec-node.
 
 ---
 

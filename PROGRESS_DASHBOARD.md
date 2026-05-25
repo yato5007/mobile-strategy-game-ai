@@ -7,17 +7,18 @@ Overall completion: 14%
 ## Progress Breakdown
 
 | Area | Weight | Completion | Status |
-|---|---|---:|---:|---|
+|---|---:|---:|---:|---|
 | Main Spec Kit | 10% | 90% | COMPLETE |
-| Recursive Spec Tree | 15% | 20% | IN_PROGRESS |
-| Game Design Decisions | 10% | 20% | IN_PROGRESS |
+| Recursive Spec Tree | 12% | 20% | IN_PROGRESS |
+| Game Design Decisions | 8% | 20% | IN_PROGRESS |
 | Core Game Logic | 15% | 50% | IN_PROGRESS |
 | Bots and AI Opponents | 10% | 0% | TODO |
 | Multiplayer Mock / Online Ready | 10% | 0% | TODO |
 | Arabic / English / RTL / LTR | 10% | 0% | TODO |
-| Android / iOS Readiness | 5% | 0% | TODO |
+| Art, Audio, Motion, and Game Feel | 7% | 0% | TODO |
+| Android / iOS Readiness | 4% | 0% | TODO |
 | Tests / Balance Simulator / QA | 10% | 0% | TODO |
-| Integration / Documentation / Handoff | 5% | 0% | TODO |
+| Integration / Documentation / Handoff | 4% | 0% | TODO |
 
 ## Current Focus
 
