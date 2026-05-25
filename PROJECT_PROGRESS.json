@@ -1,11 +1,11 @@
 {
-  "overall_completion_percent": 15,
+  "overall_completion_percent": 14,
   "last_updated": "2026-05-25",
   "areas": {
     "main_speckit": { "weight": 10, "completion_percent": 90, "status": "COMPLETE" },
     "recursive_spec_tree": { "weight": 15, "completion_percent": 20, "status": "IN_PROGRESS" },
     "game_design_decisions": { "weight": 10, "completion_percent": 20, "status": "IN_PROGRESS" },
-    "core_game_logic": { "weight": 15, "completion_percent": 60, "status": "IN_PROGRESS" },
+    "core_game_logic": { "weight": 15, "completion_percent": 50, "status": "IN_PROGRESS" },
     "bots_and_ai": { "weight": 10, "completion_percent": 0, "status": "TODO" },
     "multiplayer": { "weight": 10, "completion_percent": 0, "status": "TODO" },
     "localization": { "weight": 10, "completion_percent": 0, "status": "TODO" },

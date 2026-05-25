@@ -2,7 +2,7 @@
 
 Last updated: 2026-05-25
 
-Overall completion: 15%
+Overall completion: 14%
 
 ## Progress Breakdown
 
@@ -11,7 +11,7 @@ Overall completion: 15%
 | Main Spec Kit | 10% | 90% | COMPLETE |
 | Recursive Spec Tree | 15% | 20% | IN_PROGRESS |
 | Game Design Decisions | 10% | 20% | IN_PROGRESS |
-| Core Game Logic | 15% | 60% | IN_PROGRESS |
+| Core Game Logic | 15% | 50% | IN_PROGRESS |
 | Bots and AI Opponents | 10% | 0% | TODO |
 | Multiplayer Mock / Online Ready | 10% | 0% | TODO |
 | Arabic / English / RTL / LTR | 10% | 0% | TODO |
