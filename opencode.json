@@ -1,0 +1,38 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "default_agent": "speckit-director",
+  "instructions": [
+    "CONTINUITY_PROTOCOL.md",
+    "GAME_CONSTRAINTS.md",
+    "SPEC_TREE_RULES.md",
+    "REQUIREMENTS_TRACE.md",
+    "DECISIONS.md",
+    "SYSTEM_CONTRACTS.md",
+    "DESIGN_SYSTEM.md"
+  ],
+  "snapshot": true,
+  "share": "disabled",
+  "compaction": {
+    "auto": true,
+    "prune": true,
+    "reserved": 10000
+  },
+  "permission": {
+    "*": "ask",
+    "edit": "allow",
+    "bash": {
+      "*": "ask",
+      "git *": "allow",
+      "./scripts/checkpoint.sh*": "allow",
+      "./scripts/status.sh*": "allow",
+      "./scripts/progress.sh*": "allow",
+      "npm test*": "allow",
+      "npm run*": "allow",
+      "npx expo*": "ask",
+      "npm install*": "ask",
+      "rm *": "deny",
+      "del *": "deny",
+      "Remove-Item *": "deny"
+    }
+  }
+}

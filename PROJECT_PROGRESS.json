@@ -1,0 +1,19 @@
+{
+  "overall_completion_percent": 0,
+  "last_updated": "",
+  "areas": {
+    "main_speckit": { "weight": 10, "completion_percent": 0, "status": "TODO" },
+    "recursive_spec_tree": { "weight": 15, "completion_percent": 0, "status": "TODO" },
+    "game_design_decisions": { "weight": 10, "completion_percent": 0, "status": "TODO" },
+    "core_game_logic": { "weight": 15, "completion_percent": 0, "status": "TODO" },
+    "bots_and_ai": { "weight": 10, "completion_percent": 0, "status": "TODO" },
+    "multiplayer": { "weight": 10, "completion_percent": 0, "status": "TODO" },
+    "localization": { "weight": 10, "completion_percent": 0, "status": "TODO" },
+    "platforms": { "weight": 5, "completion_percent": 0, "status": "TODO" },
+    "tests_balance_qa": { "weight": 10, "completion_percent": 0, "status": "TODO" },
+    "integration_documentation_handoff": { "weight": 5, "completion_percent": 0, "status": "TODO" }
+  },
+  "current_focus": "Not started",
+  "blockers": [],
+  "next_step": "Start root Spec Kit workflow"
+}
