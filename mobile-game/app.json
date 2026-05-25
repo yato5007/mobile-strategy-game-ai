@@ -25,8 +25,9 @@
     },
     "extra": {
       "eas": {
-        "projectId": "shatranj-strategy"
+        "projectId": "c80cf351-98aa-47b1-9aa0-b3d002daf2b7"
       }
-    }
+    },
+    "owner": "johani99"
   }
 }
