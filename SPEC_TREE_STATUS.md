@@ -15,9 +15,10 @@ Core Game Logic Engine:
 - State: READY_FOR_CHILDREN
 - Current phase: full Spec Kit complete ✅, initial implementation complete ✅
 - QA: PASS_WITH_NOTES ✅ (all critical/major issues resolved, zero TS errors)
-- Reviewer: PENDING 🔄
+- Reviewer: PASS ✅
 - Last checkpoint: All 8 TypeScript source files + fixes for C1, C2, M1, M4
 - QA result: `.spec-tree/core-game-logic/qa-result.md` — PASS_WITH_NOTES
+- Review result: `.spec-tree/core-game-logic/review-result.md` — PASS
 
 ## Resume Instructions
 
@@ -62,7 +63,8 @@ If interrupted:
   - ✅ C2: PLANNING_TIME import added
   - ✅ M1: Card tracking fixed (hand → lane only, no premature discard)
   - ✅ M4: shieldedPlayers added to LaneState, no `any` casts
-- 🔄 Next: Reviewer for core-game-logic, then derive remaining child branches
+- ✅ Reviewer for core-game-logic: PASS
+- 🔄 Next: Derive remaining child branches (UI, Bots, Multiplayer, Localization, Balance & Testing, Art/Audio/Motion)
 
 ## Node List (Full)
 
