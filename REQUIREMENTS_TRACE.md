@@ -123,7 +123,7 @@ NOTE: The Art, Audio, Motion, and Game Feel requirements share IDs REQ-023 throu
 | ID | Description | Source | Node | Decision | Impl | Tests | QA | Review | Status |
 |---|---|---|---|---|---|---|---|---|---|
 | REQ-053 | Expo React Native + TypeScript | Tech 1 | root | — | mobile-game/ | — | — | — | 🔄 |
-| REQ-054 | Local mock multiplayer first | Tech 2 | root | D007 | — | — | — | — | 🔄 |
+| REQ-054 | Local mock multiplayer first | Tech 2 | multiplayer-system | D007 | multiplayer/types.ts, multiplayer/mockMultiplayerAdapter.ts, multiplayer/index.ts | — | — | — | ✅ |
 | REQ-055 | Supabase Realtime later (online) | Tech 3 | root | D007 | — | — | — | — | 🔄 |
 | REQ-056 | Playable prototype before final approval | Tech 4 | root | — | — | — | — | — | 🔄 |
 
@@ -149,9 +149,9 @@ NOTE: The Art, Audio, Motion, and Game Feel requirements share IDs REQ-023 throu
 | Bot | 12 | 0 | 12 | 0 |
 | Anti-Dominant Strategy | 10 | 6 | 4 | 0 |
 | Art, Audio, Motion, Game Feel | 11 | 0 | 11 | 0 |
-| Technical | 4 | 0 | 4 | 0 |
+| Technical | 4 | 1 | 3 | 0 |
 | Documentation | 6 | 2 | 4 | 0 |
-| **Total** | **73** | **30** | **43** | **0** |
+| **Total** | **73** | **31** | **42** | **0** |
 
 Note: Core Game requirements (REQ-001 through REQ-022) and Anti-Dominant Strategy requirements (REQ-043 through REQ-048) now have implementation file references pointing to `mobile-game/src/game/` files in the core-game-logic branch. Tests, QA, and Review columns will be filled by subsequent branches and review cycles.
 
