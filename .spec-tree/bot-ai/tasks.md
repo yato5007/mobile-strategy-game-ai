@@ -1,0 +1,21 @@
+# Bot and AI System — Tasks
+
+- [ ] Task 1: Define BotConfig type (difficulty + style).
+- [ ] Task 2: Define BotController interface (decide method).
+- [ ] Task 3: Create evaluation heuristic functions (laneScore, cardScore).
+- [ ] Task 4: Implement Easy difficulty bot.
+- [ ] Task 5: Implement Normal difficulty bot.
+- [ ] Task 6: Implement Hard difficulty bot.
+- [ ] Task 7: Implement Expert difficulty bot.
+- [ ] Task 8: Implement Aggressive style modifier.
+- [ ] Task 9: Implement Defensive style modifier.
+- [ ] Task 10: Implement Balanced style modifier.
+- [ ] Task 11: Implement Disruptive style modifier.
+- [ ] Task 12: Implement Objective-focused style modifier.
+- [ ] Task 13: Implement Comeback-focused style modifier.
+- [ ] Task 14: Implement Team-support style modifier.
+- [ ] Task 15: Create BotRegistry (difficulty × style → behavior).
+- [ ] Task 16: Integrate bots with game engine (bot submitAssignments).
+- [ ] Task 17: Test bots in FFA mode.
+- [ ] Task 18: Test bots in 2v2 mode.
+- [ ] Task 19: Create tests for each bot difficulty/style.

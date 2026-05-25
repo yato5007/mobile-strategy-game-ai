@@ -73,7 +73,16 @@ If interrupted:
   - ✅ Localization System — constitution.md
   - ✅ Art, Audio, Motion, and Game Feel System — constitution.md (agent + ASSET_PIPELINE.md)
   - ✅ Balance and Testing — constitution.md
-- 🔄 Next: Complete full Spec Kit lifecycle for each remaining branch.
+- ✅ **Bot and AI System** — Populated all 12 Spec Kit files:
+  - ✅ clarification.md (222 lines) — Deep Q&A on bot definition, difficulty vs style, heuristics, visible/hidden info, 2v2 teamwork, difficulty profiles
+  - ✅ analysis.md (115 lines) — Risks, dependencies, key decisions, edge cases, algorithmic complexity, test strategy
+  - ✅ checklist.md (70 lines, 40 items) — Types, difficulties, styles, modes, fairness, configuration, integration, robustness, testing
+  - ✅ NODE_SUMMARY.md (82 lines) — Full summary with parent link, decisions, alternatives, dependencies, next steps
+  - ✅ implementation-result.md — NOT_IMPLEMENTED placeholder with implementation plan
+  - ✅ qa-result.md — NOT_STARTED placeholder with QA scope
+  - ✅ review-result.md — NOT_STARTED placeholder with review criteria
+  - ✅ integration-notes.md (197 lines) — Bot-engine connection, slot filling, mock multiplayer, balance simulator, error handling, file structure
+- 🔄 Next: Implement bot system (Tasks 1-19), then run QA and Review, or move to next branch.
 
 ## Node List (Full)
 
@@ -82,7 +91,7 @@ If interrupted:
 | root | READY_FOR_CHILDREN | Spec Kit ✅ | 0 |
 | Core Game Logic Engine | READY_FOR_CHILDREN | Spec Kit ✅, Impl ✅, QA ✅, Review ✅ | 1 |
 | UI and User Experience | TODO | — | 1 |
-| Bot and AI System | TODO | — | 1 |
+| Bot and AI System | IN_PROGRESS | Spec Kit ✅ (all 12 files populated), implementation pending | 1 |
 | Multiplayer System | TODO | — | 1 |
 | Localization System | TODO | — | 1 |
 | Art, Audio, Motion, and Game Feel System | TODO | — | 1 |
