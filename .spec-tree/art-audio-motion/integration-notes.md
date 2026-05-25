@@ -103,10 +103,10 @@ If this system changes its public API:
 ## Integration Status
 
 | System | Status | Notes |
-|---|---|---|
-| Core Game Logic | 🔄 Ready | Events defined; art system can subscribe |
-| UI and UX | 🔜 Not started | Will consume art components |
-| Localization | 🔜 Not started | Will provide RTL flag and fonts |
+|---|---|---|---|
+| Core Game Logic | ✅ Integrated | useGameSounds subscribes to GameEventEmitter |
+| UI and UX | ✅ Ready | Hook system created; wire into GameScreen during Integration Freeze |
+| Localization | ✅ Ready | useAnimation.toRTL uses I18nManager.isRTL |
 | Multiplayer | ✅ No dependency | Art is purely local |
 | Bot/AI | ✅ No dependency | Art is purely presentational |
 | Balance/Testing | ✅ No dependency | Art does not affect balance |

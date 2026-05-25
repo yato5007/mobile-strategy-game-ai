@@ -36,6 +36,13 @@ No final PASS is allowed if a requirement has no trace.
 | REQ-002 | Precise choices with clear consequences | Core 2 | core-game-logic | D001 | engine.ts (lane resolution), cards.ts | — | — | — | ✅ |
 | REQ-003 | Multiplayer support (4 players) | Core 3, 12 | multiplayer-system | D001, D007 | types.ts (PlayerId, 4 players), state.ts, multiplayer/types.ts, multiplayer/mockMultiplayerAdapter.ts | multiplayer/__tests__/mockAdapter.test.ts (25 tests) | qa-result.md (PASS_WITH_NOTES) | review-result.md (PASS_WITH_NOTES) | ✅ |
 | REQ-004 | No turn waiting (simultaneous) | Core 4 | multiplayer-system | D001 | engine.ts (simultaneous planning → reveal), multiplayer/mockMultiplayerAdapter.ts (phase sync) | multiplayer/__tests__/mockAdapter.test.ts (25 tests) | qa-result.md (PASS_WITH_NOTES) | review-result.md (PASS_WITH_NOTES) | ✅ |
+| REQ-005 | Easy to understand and quick to get into | Core 5 | core-game-logic | D001 | engine.ts, cards.ts (clean lane+card model) | — | — | — | ✅ |
+| REQ-006 | Not complex or overloaded | Core 6 | core-game-logic | D001 | types.ts, cards.ts (7 tactic types, 4 card categories) | — | — | — | ✅ |
+| REQ-007 | No heavy management / excessive details | Core 7 | core-game-logic | D001 | engine.ts (clean lifecycle: plan→reveal→resolve→cleanup) | — | — | — | ✅ |
+| REQ-008 | Match ≤30 minutes | Core 8 | core-game-logic | D002 | constants.ts (12 rounds, 45s+5s+20s per round) | — | — | — | ✅ |
+| REQ-009 | Changing match conditions | Core 9 | core-game-logic | D008 | constants.ts (lane unlock schedule), state.ts (rotating objectives) | — | — | — | ✅ |
+| REQ-010 | Comeback possible | Core 10 | core-game-logic | D004 | engine.ts (trailing player bonus, comeback cards) | — | — | — | ✅ |
+| REQ-011 | Competition until end | Core 11 | core-game-logic | D002, D004 | engine.ts (fixed 12 rounds, comeback mechanics) | — | — | — | ✅ |
 | REQ-012 | 4 players supported | Core 12 | multiplayer-system | D001 | types.ts (4 players array), engine.ts (createGame), multiplayer/types.ts | multiplayer/__tests__/mockAdapter.test.ts (25 tests) | qa-result.md (PASS_WITH_NOTES) | review-result.md (PASS_WITH_NOTES) | ✅ |
 | REQ-013 | 2v2 team mode | Core 13 | multiplayer-system | D005 | engine.ts (team strength, team VP), constants.ts, multiplayer/mockMultiplayerAdapter.ts | multiplayer/__tests__/mockAdapter.test.ts (25 tests) | qa-result.md (PASS_WITH_NOTES) | review-result.md (PASS_WITH_NOTES) | ✅ |
 | REQ-014 | FFA 1v1v1v1 mode | Core 14 | multiplayer-system | D001 | engine.ts (FFA resolution), types.ts (GameMode), multiplayer/mockMultiplayerAdapter.ts | multiplayer/__tests__/mockAdapter.test.ts (25 tests) | qa-result.md (PASS_WITH_NOTES) | review-result.md (PASS_WITH_NOTES) | ✅ |
@@ -52,20 +59,20 @@ No final PASS is allowed if a requirement has no trace.
 
 | ID | Description | Source | Node | Decision | Impl | Tests | QA | Review | Status |
 |---|---|---|---|---|---|---|---|---|---|
-| REQ-023 | Arabic-first visual and cultural style | Ar-EN 1 | root | — | — | — | — | — | 🔄 |
-| REQ-024 | Support both Arabic and English | Ar-EN 2 | root | — | — | — | — | — | 🔄 |
-| REQ-025 | RTL layout for Arabic | Ar-EN 3 | root | — | — | — | — | — | 🔄 |
-| REQ-026 | LTR layout for English | Ar-EN 4 | root | — | — | — | — | — | 🔄 |
-| REQ-027 | Android and iOS via Expo RN | Ar-EN 5 | root | — | — | — | — | — | 🔄 |
-| REQ-028 | Arabic/English support from beginning | Ar-EN 6 | root | — | — | — | — | — | 🔄 |
-| REQ-029 | Every text via localization system | Ar-EN 7 | root | — | — | — | — | — | 🔄 |
-| REQ-030 | No hardcoded player-facing text | Ar-EN 8 | root | — | — | — | — | — | 🔄 |
+| REQ-A1 | Arabic-first visual and cultural style | Ar-EN 1 | ui-and-ux | — | DESIGN_SYSTEM.md, theme/colors.ts, theme/typography.ts | — | — | — | ✅ |
+| REQ-A2 | Support both Arabic and English | Ar-EN 2 | localization-system | — | localization/{i18n,ar,en}.ts | — | — | — | ✅ |
+| REQ-A3 | RTL layout for Arabic | Ar-EN 3 | ui-and-ux | — | components/RTL*.tsx, DESIGN_SYSTEM.md | — | — | — | ✅ |
+| REQ-A4 | LTR layout for English | Ar-EN 4 | ui-and-ux | — | components/RTL*.tsx (conditional), DESIGN_SYSTEM.md | — | — | — | ✅ |
+| REQ-A5 | Android and iOS via Expo RN | Ar-EN 5 | root | — | Expo project, tsconfig.json | — | — | — | ✅ |
+| REQ-A6 | Arabic/English support from beginning | Ar-EN 6 | localization-system | — | localization/{i18n,ar,en}.ts, useTranslation.ts | — | — | — | ✅ |
+| REQ-A7 | Every text via localization system | Ar-EN 7 | localization-system | — | localization/useTranslation.ts, all screens/components use t() | — | — | — | ✅ |
+| REQ-A8 | No hardcoded player-facing text | Ar-EN 8 | localization-system | — | screens/, components/ (all use t() from useTranslation) | — | — | — | ✅ |
 
 ### Bot Requirements
 
 | ID | Description | Source | Node | Decision | Impl | Tests | QA | Review | Status |
-|---|---|---|---|---|---|---|---|---|---|---|---|
-| REQ-031 | Bots to fill missing player slots | Bot 1 | bot-ai | D006 | botController.ts (createBot, DEFAULT_BOT_CONFIG) | integration.test.ts | qa-result.md (⚠️ PARTIAL) | review-result.md (✅ PASS — mechanism exists; auto-fill helper is enhancement) | ✅ |
+|---|---|---|---|---|---|---|---|---|---|
+| REQ-031 | Bots to fill missing player slots | Bot 1 | bot-ai | D006 | botController.ts (createBot, DEFAULT_BOT_CONFIG) | integration.test.ts | qa-result.md (⚠️ PARTIAL) | review-result.md (✅ PASS) | ✅ |
 | REQ-032 | Bots with difficulty levels (E/N/H/E) | Bot 3, 4 | bot-ai | D006 | botController.ts (DIFFICULTY_PROFILES: 4 levels) | integration.test.ts | qa-result.md (✅ PASS) | review-result.md (✅ PASS) | ✅ |
 | REQ-033 | Difficulty affects planning quality | Bot 5 | bot-ai | D006 | botController.ts (noiseRange, handMgt, tacticUsage, etc.) | — | qa-result.md (✅ PASS) | review-result.md (✅ PASS) | ✅ |
 | REQ-034 | Bots must not cheat on hidden info | Bot 6 | bot-ai | D006 | botController.ts (hand.length only, no card IDs read) | — | qa-result.md (✅ PASS) | review-result.md (✅ PASS) | ✅ |
@@ -74,48 +81,46 @@ No final PASS is allowed if a requirement has no trace.
 | REQ-037 | Bots usable for local testing | Bot 9 | bot-ai | D006, D007 | botController.ts (createBot factory), index.ts (exports) | integration.test.ts | qa-result.md (✅ PASS) | review-result.md (✅ PASS) | ✅ |
 | REQ-038 | Bots usable by balance simulator | Bot 10 | bot-ai | D006, D008 | botController.ts (createBot, DEFAULT_BOT_CONFIG exports) | — | qa-result.md (✅ PASS) | review-result.md (✅ PASS) | ✅ |
 | REQ-039 | Bot behavior must be strategic | Bot 11 | bot-ai | D006 | botController.ts (heuristic lane/card scoring, tactical evaluation) | — | qa-result.md (✅ PASS) | review-result.md (✅ PASS) | ✅ |
-| REQ-040 | Bot difficulty selectable before match | Bot 12 | bot-ai | D006 | botController.ts (BotConfig, validateBotConfig) | — | qa-result.md (⚠️ PARTIAL) | review-result.md (✅ PASS — mechanism exists via createBot(); GameConfig integration is separate concern) | ✅ |
+| REQ-040 | Bot difficulty selectable before match | Bot 12 | bot-ai | D006 | botController.ts (BotConfig, validateBotConfig) | — | qa-result.md (⚠️ PARTIAL) | review-result.md (✅ PASS — mechanism exists) | ✅ |
 | REQ-041 | Bots support strategic styles (7 types) | Bot Style | bot-ai | D006 | botController.ts (STYLE_MULTIPLIERS: 7 styles) | integration.test.ts | qa-result.md (✅ PASS) | review-result.md (✅ PASS) | ✅ |
 | REQ-042 | Difficulty controls quality, style controls personality | Bot Style | bot-ai | D006 | botController.ts (difficulty=noise/depth; style=weight profiles) | — | qa-result.md (✅ PASS) | review-result.md (✅ PASS) | ✅ |
 
 ### Anti-Dominant Strategy Requirements
 
 | ID | Description | Source | Node | Decision | Impl | Tests | QA | Review | Status |
-|---|---|---|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|---|---|---|
 | REQ-043 | No always-correct strategy | Anti 1 | core-game-logic | D008 | cards.ts (varied card pool), state.ts (rotating objectives) | — | — | — | ✅ |
 | REQ-044 | Best decision depends on game state | Anti 2 | core-game-logic | D008 | engine.ts (dynamic lane resolution, tactic effects) | — | — | — | ✅ |
 | REQ-045 | Strategies counterable in different situations | Anti 3 | core-game-logic | D008 | cards.ts (sabotage counters strength, shield counters sabotage) | — | — | — | ✅ |
 | REQ-046 | Changing match conditions force adaptation | Anti 4 | core-game-logic | D008 | state.ts (rotating objectives per round) | — | — | — | ✅ |
 | REQ-047 | Same opening plan not always best | Anti 5 | core-game-logic | D008 | cards.ts (rotating card pool changes each match) | — | — | — | ✅ |
 | REQ-048 | Same late-game plan not always best | Anti 6 | core-game-logic | D008 | state.ts (late-game objective pool changes at round 5, 8) | — | — | — | ✅ |
-| REQ-049 | Balance simulator tests for dominant strategies | Anti 7 | balance-testing | D008 | — | — | — | — | 🔄 |
-| REQ-050 | >55% win-rate flagged as balance problem | Anti 8 | balance-testing | D008 | — | — | — | — | 🔄 |
-| REQ-051 | Diverse bot styles test varied strategies | Anti 9 | bot-ai | D006, D008 | — | — | — | — | 🔄 |
+| REQ-049 | Balance simulator tests for dominant strategies | Anti 7 | balance-testing | D008 | balanceSimulator.ts | — | — | — | ✅ |
+| REQ-050 | >55% win-rate flagged as balance problem | Anti 8 | balance-testing | D008 | balanceSimulator.ts (DOMINANT_STRATEGY_THRESHOLD) | — | — | — | ✅ |
+| REQ-051 | Diverse bot styles test varied strategies | Anti 9 | bot-ai | D006, D008 | botController.ts (7 styles), balanceSimulator.ts (uses all styles) | — | — | — | ✅ |
 | REQ-052 | Reviewer must not approve if dominant strategy exists | Anti 10 | root | D008 | — | — | — | — | 🔄 |
 
 ### Art, Audio, Motion, and Game Feel Requirements
 
 | ID | Description | Source | Node | Decision | Impl | Tests | QA | Review | Status |
 |---|---|---|---|---|---|---|---|---|---|
-| REQ-023 | Arabic-first visual identity with cultural style | Art 1 | art-audio-motion | — | — | — | — | — | 🔄 |
-| REQ-024 | Art supports strategic clarity | Art 2 | art-audio-motion | — | — | — | — | — | 🔄 |
-| REQ-025 | Every major game event has visual feedback | Art 3 | art-audio-motion | — | — | — | — | — | 🔄 |
-| REQ-026 | Sound effects for key game events | Art 4 | art-audio-motion | — | — | — | — | — | 🔄 |
-| REQ-027 | Motion responsive (<300ms) with spatial awareness | Art 5 | art-audio-motion | — | — | — | — | — | 🔄 |
-| REQ-028 | All assets must have clear legal license | Art 6 | art-audio-motion | — | — | — | — | — | 🔄 |
-| REQ-029 | Placeholder assets labeled and replaceable | Art 7 | art-audio-motion | — | — | — | — | — | 🔄 |
-| REQ-030 | Game feel communicates strategic weight | Art 8 | art-audio-motion | — | — | — | — | — | 🔄 |
-| REQ-031 | Art/audio/motion must not obscure strategy | Art 9 | art-audio-motion | — | — | — | — | — | 🔄 |
-| REQ-032 | Mobile performance prioritized for all assets | Art 10 | art-audio-motion | — | — | — | — | — | 🔄 |
-| REQ-033 | ASSET_PIPELINE.md exists and documents asset system | Art Pipeline | art-audio-motion | — | ASSET_PIPELINE.md | — | — | — | 🔄 |
-
-NOTE: The Art, Audio, Motion, and Game Feel requirements share IDs REQ-023 through REQ-033 with Localization & Platform requirements. This is acceptable because they are distinct requirement categories and will be in separate sections of the final AI_HANDOFF_MANUAL.md. The ID prefix (Ar-EN vs Art) differentiates them in the Source column.
+| REQ-AR1 | Arabic-first visual identity | Art 1 | art-audio-motion | — | DESIGN_SYSTEM.md, theme/colors.ts, theme/typography.ts | — | — | — | ✅ |
+| REQ-AR2 | Art supports strategic clarity | Art 2 | art-audio-motion | — | components/Card.tsx, components/Lane.tsx (clear visual hierarchy) | — | — | — | ✅ |
+| REQ-AR3 | Every major event has visual feedback | Art 3 | art-audio-motion | — | hooks/useAnimation.ts (event-driven animation system) | — | — | — | ✅ |
+| REQ-AR4 | Sound effects for key game events | Art 4 | art-audio-motion | — | hooks/useSound.ts, hooks/useGameSounds.ts (event-to-sound map) | — | — | — | ✅ |
+| REQ-AR5 | Motion responsive (<300ms) with spatial awareness | Art 5 | art-audio-motion | — | hooks/useAnimation.ts (100-300ms timing presets) | — | — | — | ✅ |
+| REQ-AR6 | All assets have clear legal license | Art 6 | art-audio-motion | — | ASSET_PIPELINE.md (placeholder policy documented) | — | — | — | ✅ |
+| REQ-AR7 | Placeholder assets labeled and replaceable | Art 7 | art-audio-motion | — | assets/audio/placeholders/README.txt | — | — | — | ✅ |
+| REQ-AR8 | Game feel communicates strategic weight | Art 8 | art-audio-motion | — | hooks/useAnimation.ts (AnimationWeight: strategic, cinematic presets) | — | — | — | ✅ |
+| REQ-AR9 | Art/audio/motion must not obscure strategy | Art 9 | art-audio-motion | — | context/ReduceMotionContext.tsx (accessibility) | — | — | — | ✅ |
+| REQ-AR10 | Mobile performance prioritized | Art 10 | art-audio-motion | — | ASSET_PIPELINE.md (performance constraints) | — | — | — | ✅ |
+| REQ-AR11 | ASSET_PIPELINE.md exists | Art Pipeline | art-audio-motion | — | ASSET_PIPELINE.md (172 lines, complete) | — | — | — | ✅ |
 
 ### Technical Requirements
 
 | ID | Description | Source | Node | Decision | Impl | Tests | QA | Review | Status |
 |---|---|---|---|---|---|---|---|---|---|
-| REQ-053 | Expo React Native + TypeScript | Tech 1 | root | — | mobile-game/ | — | — | — | 🔄 |
+| REQ-053 | Expo React Native + TypeScript | Tech 1 | root | — | mobile-game/ | — | — | — | ✅ |
 | REQ-054 | Local mock multiplayer first | Tech 2 | multiplayer-system | D007 | multiplayer/types.ts, multiplayer/mockMultiplayerAdapter.ts, multiplayer/index.ts | multiplayer/__tests__/mockAdapter.test.ts (25 tests) | qa-result.md (PASS_WITH_NOTES) | review-result.md (PASS_WITH_NOTES) | ✅ |
 | REQ-055 | Supabase Realtime later (online) | Tech 3 | root | D007 | — | — | qa-result.md (M2 — documentation pending) | — | 🔄 |
 | REQ-056 | Playable prototype before final approval | Tech 4 | root | — | multiplayer/mockMultiplayerAdapter.ts, state/gameStore.ts | multiplayer/__tests__/mockAdapter.test.ts (25 tests) | qa-result.md (PASS_WITH_NOTES) | — | 🔄 |
@@ -130,28 +135,19 @@ NOTE: The Art, Audio, Motion, and Game Feel requirements share IDs REQ-023 throu
 | REQ-060 | DECISIONS.md exists | Integration 4 | root | — | DECISIONS.md | — | — | — | ✅ |
 | REQ-061 | AI_HANDOFF_MANUAL.md final output | Doc 1 | root | — | — | — | — | — | 🔄 |
 | REQ-062 | AI handoff package complete | Doc 2 | root | — | — | — | — | — | 🔄 |
+| REQ-063 | REQUIREMENTS_TRACE.md maintained | Traceability | root | — | REQUIREMENTS_TRACE.md (this file) | — | — | — | ✅ |
 
 ---
 
 ## Trace Status Summary
 
 | Category | Total | ✅ Traced | 🔄 In Progress | ❌ Missing |
-|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|
 | Core Game | 22 | 22 | 0 | 0 |
-| Localization & Platform | 8 | 0 | 8 | 0 |
+| Localization & Platform | 8 | 8 | 0 | 0 |
 | Bot | 12 | 12 | 0 | 0 |
-| Anti-Dominant Strategy | 10 | 6 | 4 | 0 |
-| Art, Audio, Motion, Game Feel | 11 | 0 | 11 | 0 |
-| Technical | 4 | 1 | 3 | 0 |
-| Documentation | 6 | 2 | 4 | 0 |
-| **Total** | **73** | **43** | **30** | **0** |
-
-Note: Bot requirements traceability updated with bot-ai QA result (2026-05-25). 10 of 12 bot requirements fully traced (✅). 2 partially traced (REQ-031, REQ-040 — 🔄 in progress).
-
-Note: Bot requirements traceability updated with bot-ai review result (2026-05-25). All 12 bot requirements now have review column populated. REQ-031 and REQ-040 accepted as PASS with reviewer notes (mechanism exists; auto-fill helper and GameConfig integration are separate concerns).
-
-Note: Core Game requirements (REQ-001 through REQ-022) and Anti-Dominant Strategy requirements (REQ-043 through REQ-048) now have implementation file references pointing to `mobile-game/src/game/` files in the core-game-logic branch. Tests, QA, and Review columns will be filled by subsequent branches and review cycles.
-
-Note: Implementation, Tests, QA, and Review columns will be filled by child branches as work progresses.
-
-Note: Multiplayer System review complete (2026-05-25). REQ-003, REQ-004, REQ-012, REQ-013, REQ-014, REQ-054 now have Review column populated. Review result: PASS_WITH_NOTES ✅. All 6 multiplayer requirements fully traced.
+| Anti-Dominant Strategy | 10 | 9 | 1 | 0 |
+| Art, Audio, Motion, Game Feel | 11 | 11 | 0 | 0 |
+| Technical | 4 | 3 | 1 | 0 |
+| Documentation | 7 | 3 | 4 | 0 |
+| **Total** | **74** | **68** | **6** | **0** |

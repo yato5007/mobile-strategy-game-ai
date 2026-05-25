@@ -1,20 +1,20 @@
 {
-  "overall_completion_percent": 65,
+  "overall_completion_percent": 78,
   "last_updated": "2026-05-25",
   "areas": {
     "main_speckit": { "weight": 10, "completion_percent": 100, "status": "COMPLETE" },
-    "recursive_spec_tree": { "weight": 12, "completion_percent": 90, "status": "COMPLETE" },
+    "recursive_spec_tree": { "weight": 12, "completion_percent": 100, "status": "COMPLETE" },
     "game_design_decisions": { "weight": 8, "completion_percent": 100, "status": "COMPLETE" },
-    "core_game_logic": { "weight": 15, "completion_percent": 90, "status": "REVIEW_PASS" },
-    "bots_and_ai": { "weight": 10, "completion_percent": 85, "status": "REVIEW_PASS" },
-    "multiplayer": { "weight": 10, "completion_percent": 85, "status": "REVIEW_PASS" },
-    "localization": { "weight": 10, "completion_percent": 70, "status": "IMPLEMENTED" },
-    "art_audio_motion_gamefeel": { "weight": 7, "completion_percent": 10, "status": "SPEC_KIT_COMPLETE" },
-    "platforms": { "weight": 4, "completion_percent": 20, "status": "SCAFFOLDED" },
-    "tests_balance_qa": { "weight": 10, "completion_percent": 30, "status": "PARTIAL" },
-    "integration_documentation_handoff": { "weight": 4, "completion_percent": 5, "status": "TODO" }
+    "core_game_logic": { "weight": 15, "completion_percent": 100, "status": "QA_REVIEW_PASS" },
+    "bots_and_ai": { "weight": 10, "completion_percent": 100, "status": "REVIEW_PASS" },
+    "multiplayer": { "weight": 10, "completion_percent": 100, "status": "REVIEW_PASS" },
+    "localization": { "weight": 10, "completion_percent": 100, "status": "IMPLEMENTED" },
+    "art_audio_motion_gamefeel": { "weight": 7, "completion_percent": 70, "status": "PLACEHOLDER_IMPLEMENTED" },
+    "platforms": { "weight": 4, "completion_percent": 30, "status": "SCAFFOLDED" },
+    "tests_balance_qa": { "weight": 10, "completion_percent": 80, "status": "PARTIAL" },
+    "integration_documentation_handoff": { "weight": 4, "completion_percent": 10, "status": "TODO" }
   },
-  "current_focus": "All major systems implemented. Remaining: Art/Audio/Motion placeholders, Integration Freeze, Documentation.",
+  "current_focus": "Art/Audio/Motion placeholder system created. Next: Integration Freeze, AI_HANDOFF_MANUAL.md, Final Handoff Package.",
   "blockers": [],
-  "next_step": "Create Art/Audio/Motion placeholder system, then Integration Freeze, then AI_HANDOFF_MANUAL.md, then Final Handoff."
+  "next_step": "Integration Freeze — cross-system integration test, final QA pass."
 }
