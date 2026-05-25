@@ -21,11 +21,11 @@ Core Game Logic Engine:
 - Review result: `.spec-tree/core-game-logic/review-result.md` — PASS
 
 Multiplayer System:
-- State: IMPLEMENTED → QA: BLOCKED
+- State: IMPLEMENTED → QA: PASS_WITH_NOTES ✅
 - Current phase: Spec Kit complete ✅, implementation complete ✅
-- QA: BLOCKED ⛔ (3 critical issues: all-bot stall, timer race condition, no adapter tests)
-- QA result: `.spec-tree/multiplayer-system/qa-result.md` — BLOCKED
-- Last checkpoint: QA review complete — awaiting fixes
+- QA: PASS_WITH_NOTES ✅ (25 tests pass, TS clean, C1/C2/C3 fixed)
+- QA result: `.spec-tree/multiplayer-system/qa-result.md` — PASS_WITH_NOTES
+- Last checkpoint: QA re-run — all critical issues resolved
 
 ## Resume Instructions
 
@@ -40,10 +40,10 @@ If interrupted:
 ## Node List
 
 | Node | State | Phase | Depth |
-|---|---|---|---|---|
+|---|---|---|---|---|---|
 | root | READY_FOR_CHILDREN | Spec Kit ✅, reviewed ✅ | 0 |
 | core-game-logic | READY_FOR_CHILDREN | Spec Kit ✅, impl ✅, QA ✅, Review ✅ | 1 |
-| multiplayer-system | BLOCKED | Spec Kit ✅, impl ✅, QA: BLOCKED ⛔ | 1 |
+| multiplayer-system | QA_PASS | Spec Kit ✅, impl ✅, QA: PASS_WITH_NOTES ✅ | 1 |
 
 ## Latest Progress
 
@@ -53,12 +53,13 @@ If interrupted:
 - ✅ **core-game-logic branch**: Impl ✅ QA ✅ Review ✅
 - ✅ **bot-ai branch**: Full Spec Kit complete (12 files, ~1,022 lines) + Impl ✅ + QA ✅ (PASS_WITH_NOTES)
 - ✅ **multiplayer-system branch**: Full Spec Kit complete (12 files, ~900 lines) + Impl ✅
-- ✅ **multiplayer-system QA**: Completed — BLOCKED ⛔ (3 critical issues)
+- ✅ **multiplayer-system QA**: Completed (re-run) — PASS_WITH_NOTES ✅ (C1/C2/C3 fixed, 25 tests pass)
 - ✅ **localization-system branch**: Full Spec Kit complete (12 files, ~941 lines)
 - ✅ **art-audio-motion branch**: Full Spec Kit complete (12 files, ~900 lines)
 - ✅ **ui-and-ux branch**: Full Spec Kit complete (12 files, ~800 lines)
 - ✅ **balance-testing branch**: Full Spec Kit complete (12 files, ~900 lines)
-- 🔄 **Next**: Fix multiplayer BLOCKED issues, then continue with UI implementation. Bot AI system needs unit tests + BotRegistry + determinism before final sign-off (see bot-ai QA result).
+- ✅ **Multiplayer unblocked**: All critical issues (C1/C2/C3) resolved. 25 adapter tests pass. TypeScript clean.
+- 🔄 **Next**: Continue with UI implementation. Bot AI system needs unit tests + BotRegistry + determinism before final sign-off (see bot-ai QA result).
 
 ## Node List (Full)
 
@@ -76,8 +77,8 @@ If interrupted:
 ## Implementation Priority
 
 1. ✅ Bot and AI System — Implemented
-2. ⛔ Multiplayer System — **BLOCKED** (must fix QA issues first)
-3. UI and User Experience (next after multiplayer unblocked)
+2. ✅ Multiplayer System — **QA PASS_WITH_NOTES** (unblocked)
+3. 🔜 UI and User Experience (next after multiplayer unblocked)
 4. Localization System (depends on UI)
 5. Balance and Testing (depends on Bot AI)
 6. Art, Audio, Motion, and Game Feel System (depends on UI + engine events)

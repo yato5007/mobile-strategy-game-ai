@@ -8,7 +8,7 @@
 - Spec Kit: complete ✅
 - spec-critic review: PASS_WITH_NOTES ✅
 
-### Child Branches (depth 1, 1 implemented, 6 with complete Spec Kits)
+### Child Branches (depth 1, 2 implemented, 6 with complete Spec Kits)
 
 1. **Core Game Logic Engine** ✅✅
    - Purpose: Game state, rounds, lanes, cards, VP, achievements
@@ -31,11 +31,14 @@
    - Impl: `mobile-game/src/bot/` (botController.ts ~1,300 lines, index.ts)
    - QA: `.spec-tree/bot-ai/qa-result.md` — PASS_WITH_NOTES
 
-4. **Multiplayer System** 🔄 SPEC_KIT_COMPLETE
+4. **Multiplayer System** ✅ IMPLEMENTED + QA
    - Purpose: Local mock multiplayer, state sync, Supabase Realtime ready
    - Depends on: Core Game Logic
-   - State: LEAF_READY_FOR_IMPLEMENTATION — full Spec Kit complete
+   - State: IMPLEMENTED — Spec Kit ✅, Impl ✅, QA ✅ (PASS_WITH_NOTES)
    - Artifacts: `.spec-tree/multiplayer-system/` (12 files, ~900 lines)
+   - Impl: `mobile-game/src/multiplayer/` (mockMultiplayerAdapter.ts, types.ts, index.ts)
+   - Tests: `mobile-game/src/multiplayer/__tests__/mockAdapter.test.ts` (25 tests)
+   - QA: `.spec-tree/multiplayer-system/qa-result.md` — PASS_WITH_NOTES
 
 5. **Localization System** 🔄 SPEC_KIT_COMPLETE
    - Purpose: Arabic/English i18n, RTL/LTR support
@@ -59,8 +62,10 @@
 ## Derived Branches (to be created)
 
 Core Game Logic Engine — complete ✅
-All 6 branches — full Spec Kit complete ✅
-Next: Implement leaf nodes starting with Bot AI and Mock Multiplayer.
+Bot and AI System — implemented ✅
+Multiplayer System — implemented ✅
+All remaining 4 branches — full Spec Kit complete ✅
+Next: Implement UI and User Experience (next priority after multiplayer unblocked).
 
 ## Rules
 

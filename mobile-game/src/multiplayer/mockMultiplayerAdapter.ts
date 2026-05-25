@@ -560,6 +560,11 @@ export class MockMultiplayerAdapter implements MultiplayerAdapter {
         }
       }
     }
+
+    // [FIX C1] After triggering all bot decisions, check if the phase
+    // can advance. Without this, all-bot games stall for the full
+    // PLANNING_TIME timeout before advancing.
+    this.checkAndAdvancePhase();
   }
 
   /**
@@ -634,6 +639,15 @@ export class MockMultiplayerAdapter implements MultiplayerAdapter {
    */
   private handlePlanningTimeout(): void {
     if (!this.game || !this.events) return;
+
+    // [FIX C2] Guard against stale timeout callbacks that fire after the
+    // phase has already advanced. This prevents the race condition where
+    // a queued setTimeout callback calls forceSubmitRemaining() and
+    // advanceToNextPhase() on a game that has already moved to a new round.
+    if (this.game.roundPhase !== 'planning') {
+      this.planningTimerId = null;
+      return;
+    }
 
     this.planningTimerId = null; // Timer already fired
 

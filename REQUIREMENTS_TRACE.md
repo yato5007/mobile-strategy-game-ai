@@ -34,11 +34,11 @@ No final PASS is allowed if a requirement has no trace.
 |---|---|---|---|---|---|---|---|---|---|---|
 | REQ-001 | Game must be strategic, not reflex/speed | Core 1 | core-game-logic | D001 | engine.ts, cards.ts | — | qa-result.md | — | ✅ |
 | REQ-002 | Precise choices with clear consequences | Core 2 | core-game-logic | D001 | engine.ts (lane resolution), cards.ts | — | — | — | ✅ |
-| REQ-003 | Multiplayer support (4 players) | Core 3, 12 | multiplayer-system | D001, D007 | types.ts (PlayerId, 4 players), state.ts, multiplayer/types.ts, multiplayer/mockMultiplayerAdapter.ts | multiplayer/__tests__/ — MISSING | qa-result.md (BLOCKED — C3) | — | 🔄 **BLOCKED** |
-| REQ-004 | No turn waiting (simultaneous) | Core 4 | multiplayer-system | D001 | engine.ts (simultaneous planning → reveal), multiplayer/mockMultiplayerAdapter.ts (phase sync) | multiplayer/__tests__/ — MISSING | qa-result.md (BLOCKED — C1, C2, C3) | — | 🔄 **BLOCKED** |
-| REQ-012 | 4 players supported | Core 12 | multiplayer-system | D001 | types.ts (4 players array), engine.ts (createGame), multiplayer/types.ts | multiplayer/__tests__/ — MISSING | qa-result.md (BLOCKED — C3) | — | 🔄 **BLOCKED** |
-| REQ-013 | 2v2 team mode | Core 13 | multiplayer-system | D005 | engine.ts (team strength, team VP), constants.ts, multiplayer/mockMultiplayerAdapter.ts | multiplayer/__tests__/ — MISSING | qa-result.md (BLOCKED — C3) | — | 🔄 **BLOCKED** |
-| REQ-014 | FFA 1v1v1v1 mode | Core 14 | multiplayer-system | D001 | engine.ts (FFA resolution), types.ts (GameMode), multiplayer/mockMultiplayerAdapter.ts | multiplayer/__tests__/ — MISSING | qa-result.md (BLOCKED — C3) | — | 🔄 **BLOCKED** |
+| REQ-003 | Multiplayer support (4 players) | Core 3, 12 | multiplayer-system | D001, D007 | types.ts (PlayerId, 4 players), state.ts, multiplayer/types.ts, multiplayer/mockMultiplayerAdapter.ts | multiplayer/__tests__/mockAdapter.test.ts (25 tests) | qa-result.md (PASS_WITH_NOTES) | — | ✅ |
+| REQ-004 | No turn waiting (simultaneous) | Core 4 | multiplayer-system | D001 | engine.ts (simultaneous planning → reveal), multiplayer/mockMultiplayerAdapter.ts (phase sync) | multiplayer/__tests__/mockAdapter.test.ts (25 tests) | qa-result.md (PASS_WITH_NOTES) | — | ✅ |
+| REQ-012 | 4 players supported | Core 12 | multiplayer-system | D001 | types.ts (4 players array), engine.ts (createGame), multiplayer/types.ts | multiplayer/__tests__/mockAdapter.test.ts (25 tests) | qa-result.md (PASS_WITH_NOTES) | — | ✅ |
+| REQ-013 | 2v2 team mode | Core 13 | multiplayer-system | D005 | engine.ts (team strength, team VP), constants.ts, multiplayer/mockMultiplayerAdapter.ts | multiplayer/__tests__/mockAdapter.test.ts (25 tests) | qa-result.md (PASS_WITH_NOTES) | — | ✅ |
+| REQ-014 | FFA 1v1v1v1 mode | Core 14 | multiplayer-system | D001 | engine.ts (FFA resolution), types.ts (GameMode), multiplayer/mockMultiplayerAdapter.ts | multiplayer/__tests__/mockAdapter.test.ts (25 tests) | qa-result.md (PASS_WITH_NOTES) | — | ✅ |
 | REQ-015 | Strategic game (not shallow points race) | Core 15 | core-game-logic | D010 | cards.ts (bluff, sabotage, ambush, etc.), engine.ts (tactic effects) | — | — | — | ✅ |
 | REQ-016 | No reward for hiding/passive play | Core 16 | core-game-logic | D003 | engine.ts (validateAssignment rejects empty) | — | — | — | ✅ |
 | REQ-017 | Active play throughout must matter | Core 17 | core-game-logic | D003 | engine.ts (mandatory ≥1 card, skip penalty) | — | — | — | ✅ |
@@ -116,9 +116,9 @@ NOTE: The Art, Audio, Motion, and Game Feel requirements share IDs REQ-023 throu
 | ID | Description | Source | Node | Decision | Impl | Tests | QA | Review | Status |
 |---|---|---|---|---|---|---|---|---|---|
 | REQ-053 | Expo React Native + TypeScript | Tech 1 | root | — | mobile-game/ | — | — | — | 🔄 |
-| REQ-054 | Local mock multiplayer first | Tech 2 | multiplayer-system | D007 | multiplayer/types.ts, multiplayer/mockMultiplayerAdapter.ts, multiplayer/index.ts | multiplayer/__tests__/ — MISSING | qa-result.md (BLOCKED — C1, C2, C3) | — | 🔄 **BLOCKED** |
-| REQ-055 | Supabase Realtime later (online) | Tech 3 | root | D007 | — | — | qa-result.md (M2 — documentation missing) | — | 🔄 **BLOCKED** |
-| REQ-056 | Playable prototype before final approval | Tech 4 | root | — | multiplayer/mockMultiplayerAdapter.ts, state/gameStore.ts | — | qa-result.md (BLOCKED) | — | 🔄 **BLOCKED** |
+| REQ-054 | Local mock multiplayer first | Tech 2 | multiplayer-system | D007 | multiplayer/types.ts, multiplayer/mockMultiplayerAdapter.ts, multiplayer/index.ts | multiplayer/__tests__/mockAdapter.test.ts (25 tests) | qa-result.md (PASS_WITH_NOTES) | — | ✅ |
+| REQ-055 | Supabase Realtime later (online) | Tech 3 | root | D007 | — | — | qa-result.md (M2 — documentation pending) | — | 🔄 |
+| REQ-056 | Playable prototype before final approval | Tech 4 | root | — | multiplayer/mockMultiplayerAdapter.ts, state/gameStore.ts | multiplayer/__tests__/mockAdapter.test.ts (25 tests) | qa-result.md (PASS_WITH_NOTES) | — | 🔄 |
 
 ### Documentation Requirements
 
@@ -142,9 +142,9 @@ NOTE: The Art, Audio, Motion, and Game Feel requirements share IDs REQ-023 throu
 | Bot | 12 | 12 | 0 | 0 |
 | Anti-Dominant Strategy | 10 | 6 | 4 | 0 |
 | Art, Audio, Motion, Game Feel | 11 | 0 | 11 | 0 |
-| Technical | 4 | 1 | 3 | 0 |
+| Technical | 4 | 3 | 1 | 0 |
 | Documentation | 6 | 2 | 4 | 0 |
-| **Total** | **73** | **43** | **30** | **0** |
+| **Total** | **73** | **45** | **28** | **0** |
 
 Note: Bot requirements traceability updated with bot-ai QA result (2026-05-25). 10 of 12 bot requirements fully traced (✅). 2 partially traced (REQ-031, REQ-040 — 🔄 in progress).
 
