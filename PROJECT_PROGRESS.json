@@ -1,11 +1,11 @@
 {
-  "overall_completion_percent": 5,
+  "overall_completion_percent": 15,
   "last_updated": "2026-05-25",
   "areas": {
-    "main_speckit": { "weight": 10, "completion_percent": 80, "status": "IN_PROGRESS" },
-    "recursive_spec_tree": { "weight": 15, "completion_percent": 5, "status": "TODO" },
-    "game_design_decisions": { "weight": 10, "completion_percent": 10, "status": "IN_PROGRESS" },
-    "core_game_logic": { "weight": 15, "completion_percent": 0, "status": "TODO" },
+    "main_speckit": { "weight": 10, "completion_percent": 90, "status": "COMPLETE" },
+    "recursive_spec_tree": { "weight": 15, "completion_percent": 20, "status": "IN_PROGRESS" },
+    "game_design_decisions": { "weight": 10, "completion_percent": 20, "status": "IN_PROGRESS" },
+    "core_game_logic": { "weight": 15, "completion_percent": 60, "status": "IN_PROGRESS" },
     "bots_and_ai": { "weight": 10, "completion_percent": 0, "status": "TODO" },
     "multiplayer": { "weight": 10, "completion_percent": 0, "status": "TODO" },
     "localization": { "weight": 10, "completion_percent": 0, "status": "TODO" },
@@ -13,7 +13,7 @@
     "tests_balance_qa": { "weight": 10, "completion_percent": 0, "status": "TODO" },
     "integration_documentation_handoff": { "weight": 5, "completion_percent": 0, "status": "TODO" }
   },
-  "current_focus": "Root Spec Kit complete. Awaiting spec-critic review.",
+  "current_focus": "Core Game Logic Engine complete (Spec Kit + implementation). QA and review pending.",
   "blockers": [],
-  "next_step": "Call @spec-critic to review root artifacts. Then derive child branches."
+  "next_step": "QA and review for Core Game Logic Engine. Then derive remaining child branches."
 }

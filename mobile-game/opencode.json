@@ -1,0 +1,22 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "default_agent": "speckit-director",
+  "instructions": [
+    "MASTER_PROJECT_PLAN.md",
+    "CONTINUITY_PROTOCOL.md",
+    "GAME_CONSTRAINTS.md",
+    "SPEC_TREE_RULES.md",
+    "REQUIREMENTS_TRACE.md",
+    "DECISIONS.md",
+    "SYSTEM_CONTRACTS.md",
+    "DESIGN_SYSTEM.md"
+  ],
+  "snapshot": true,
+  "share": "disabled",
+  "compaction": {
+    "auto": true,
+    "prune": true,
+    "reserved": 10000
+  },
+  "permission": "allow"
+}

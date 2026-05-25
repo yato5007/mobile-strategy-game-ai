@@ -11,6 +11,12 @@ Root:
 - Current phase: full Spec Kit complete, spec-critic reviewed ✅
 - Last checkpoint: spec-critic recommendations applied
 
+Core Game Logic Engine:
+- State: READY_FOR_CHILDREN
+- Current phase: full Spec Kit complete ✅, initial implementation complete ✅
+- QA and Review: PENDING
+- Last checkpoint: All 8 TypeScript source files created + 12 Spec Kit artifacts
+
 ## Resume Instructions
 
 If interrupted:
@@ -26,31 +32,36 @@ If interrupted:
 | Node | State | Phase | Depth |
 |---|---|---|---|
 | root | READY_FOR_CHILDREN | Spec Kit ✅, reviewed ✅ | 0 |
+| core-game-logic | READY_FOR_CHILDREN | Spec Kit ✅, impl ✅, QA/Review 🔄 | 1 |
 
 ## Latest Progress
 
-- ✅ Root constitution
-- ✅ Root specification
-- ✅ Root clarification
-- ✅ Root plan
-- ✅ Root tasks
-- ✅ Root analysis
-- ✅ Root checklist
+- ✅ Root constitution, spec, clarification, plan, tasks, analysis, checklist
 - ✅ Root implementation (scaffolding)
 - ✅ @spec-critic review: PASS_WITH_NOTES
-- ✅ All 4 recommendations applied:
-  - DECISIONS.md populated (10 decisions recorded)
-  - REQUIREMENTS_TRACE.md started (62 requirements traced)
-  - Stub QA, review, integration-notes created
-  - Anti-points-race depth documented in D010
-- 🔄 Next: Derive child branches
+- ✅ All 4 spec-critic recommendations applied
+- ✅ **core-game-logic branch created:**
+  - ✅ constitution.md, spec.md, clarification.md
+  - ✅ plan.md, tasks.md, analysis.md, checklist.md
+  - ✅ implementation-result.md, NODE_SUMMARY.md
+  - ✅ qa-result.md (stub), review-result.md (stub), integration-notes.md
+  - ✅ `types.ts` — All game type definitions (strict, serializable)
+  - ✅ `constants.ts` — All game constants
+  - ✅ `cards.ts` — Card system (deck, shuffle, draw, discard, comeback cards)
+  - ✅ `engine.ts` — Core engine (init, round lifecycle, lane resolution, tactics)
+  - ✅ `state.ts` — State management (queries, serialization)
+  - ✅ `events.ts` — Typed event emitter
+  - ✅ `achievements.ts` — 6 achievement definitions and checker
+  - ✅ `index.ts` — Public API barrel export
+  - ✅ Total: ~1,715 lines of strict TypeScript, zero UI imports
+- 🔄 Next: QA and Review for core-game-logic, then derive remaining child branches
 
 ## Node List (Full)
 
 | Node | State | Phase | Depth |
 |---|---|---|---|
 | root | READY_FOR_CHILDREN | Spec Kit ✅ | 0 |
-| Core Game Logic Engine | TODO | — | 1 |
+| Core Game Logic Engine | READY_FOR_CHILDREN | Spec Kit ✅, Impl ✅ | 1 |
 | UI and User Experience | TODO | — | 1 |
 | Bot and AI System | TODO | — | 1 |
 | Multiplayer System | TODO | — | 1 |
@@ -59,4 +70,4 @@ If interrupted:
 
 ## Blockers
 
-None. Ready for child branch derivation.
+None. Ready for QA/review on core-game-logic. Continue deriving remaining child branches.

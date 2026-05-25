@@ -7,12 +7,15 @@
 - State: READY_FOR_CHILDREN ✅
 - Spec Kit: complete
 
-### Child Branches (depth 1, pending derivation)
+### Child Branches (depth 1, 1 complete, 5 pending)
 
-1. **Core Game Logic Engine**
+1. **Core Game Logic Engine** ✅
    - Purpose: Game state, rounds, lanes, cards, VP, achievements
    - Depends on: root
-   - Children: likely depth 2 (Card System, Round Manager, Achievement System)
+   - State: READY_FOR_CHILDREN (Spec Kit ✅, Impl ✅, QA/Review 🔄)
+   - Children: likely depth 2 if needed (Card System, Round Engine, Achievement System)
+   - Impl: `mobile-game/src/game/` (8 files, ~1,715 lines)
+   - Artifacts: `.spec-tree/core-game-logic/` (12 files)
 
 2. **UI and User Experience**
    - Purpose: Board rendering, card interaction, animations, RTL/LTR
@@ -41,7 +44,8 @@
 
 ### Derived Branches (to be created)
 
-Will be populated by @recursive-spec-node calls.
+Core Game Logic Engine — complete ✅ (created 2026-05-25)
+Remaining 5 branches to be derived by @recursive-spec-node.
 
 ---
 
