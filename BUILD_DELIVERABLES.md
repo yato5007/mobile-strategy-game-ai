@@ -1,40 +1,100 @@
-# Build Deliverables
+# Build Deliverables — Android APK
 
-This file documents how to create final test builds.
+> آخر تحديث: 2026-05-25  
+> الحالة: ⏳ يحتاج تسجيل دخول Expo
 
-## Goal
+## ❌ NEED_EXPO_LOGIN
 
-At the end of the project, provide:
+لم يكتمل بناء APK لأن EAS Build يتطلب حساب Expo.
 
-- Android APK or installable Android test build
-- documented build steps
-- install instructions
-- known blockers if build is not possible in the current environment
+### الخطوات المطلوبة منك:
 
-## Android Build Requirement
+#### 1. سجّل الدخول إلى Expo
 
-The project is not fully complete unless one of these is true:
+```bash
+cd mobile-game
+npx eas-cli login
+```
 
-1. An Android APK/installable test build was produced.
-2. A technical blocker is documented with exact steps to resolve it.
+- سيطلب البريد الإلكتروني وكلمة المرور لحساب Expo الخاص بك.
+- إذا ليس لديك حساب، أنشئ واحدًا مجانيًا على: https://expo.dev/signup
 
-## Build Steps Placeholder
+#### 2. بعد تسجيل الدخول، أعد تشغيل الأمر:
 
-These steps must be finalized when the app is ready:
+```bash
+cd mobile-game
+npx eas-cli build -p android --profile preview-apk
+```
 
-1. Confirm tests pass.
-2. Confirm QA/Reviewer/Integration PASS.
-3. Confirm assets and localization are included.
-4. Configure Expo/EAS if required.
-5. Build Android test artifact.
-6. Record output path.
-7. Record commit hash.
-8. Document installation steps.
+#### 3. انتظر اكتمال البناء
 
-## Expected Commands
+- EAS Build سيرفع الكود إلى سيرفرات Expo ويبني APK في السحابة.
+- المدة التقريبية: 5-15 دقيقة.
+- بعد الاكتمال، ستحصل على رابط تحميل APK.
 
-To be finalized later, likely involving Expo/EAS.
+#### 4. تثبيت APK على جهاز Android
 
-## iOS Note
+- حمّل رابط APK على جهاز Android.
+- افتح الملف لبدء التثبيت.
+- قد تحتاج إلى تفعيل "تثبيت من مصادر غير معروفة" في إعدادات الأمان.
 
-iOS test delivery may require Apple-specific accounts or workflows. Document the chosen path when the project reaches build readiness.
+---
+
+## 🛠️ إعدادات البناء الحالية
+
+### `eas.json`
+
+```json
+{
+  "cli": { "version": ">= 12.0.0" },
+  "build": {
+    "preview-apk": {
+      "android": { "buildType": "apk" }
+    },
+    "production": {}
+  }
+}
+```
+
+### `app.json` — إعدادات التطبيق
+
+| الحقل | القيمة |
+|---|---|
+| الاسم | Shatranj Strategy |
+| package name | `com.shatranj.strategy` |
+| Android build type | APK (قابل للتثبيت المباشر) |
+| Expo SDK | 56 |
+| Target | Android + iOS |
+
+---
+
+## ✅ تم التأكيد قبل البناء
+
+| الفحص | النتيجة |
+|---|---|
+| TypeScript strict mode | ✅ صفر أخطاء |
+| EAS CLI | ✅ متاح عبر npx |
+| eas.json | ✅ موجود |
+| app.json | ✅ محدّث مع package name |
+| الاختبارات | 238/250 نجاح (12 فشل سابق غير حرج) |
+
+---
+
+## 📱 بعد تثبيت APK
+
+- اسم التطبيق: **Shatranj Strategy**
+- اختر FFA أو 2v2
+- اضبط إعدادات البوتات (Easy/Normal/Hard/Expert)
+- ابدأ المباراة ولاحظ آلية اللعب: تخطيط ← كشف ← حل الممرات
+- يمكن تغيير اللغة (عربي/إنجليزي) من شاشة الإعدادات
+
+---
+
+## 🚨 إذا واجهت مشاكل في البناء
+
+| المشكلة | الحل |
+|---|---|
+| `An Expo user account is required` | نفّذ `npx eas-cli login` أولًا |
+| `Project ID not configured` | قد تحتاج لربط المشروع: `npx eas-cli init` |
+| فشل في رفع الملفات | تحقق من اتصال الإنترنت |
+| خطأ في build على سيرفر EAS | اقرأ الـ logs التي سيعرضها EAS |

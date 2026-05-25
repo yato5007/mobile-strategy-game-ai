@@ -1,4 +1,4 @@
-# MASTER_PROJECT_PLAN.md
+ظ# MASTER_PROJECT_PLAN.md
 
 # الخطة الرئيسية النهائية لمشروع لعبة الجوال الاستراتيجية باستخدام OpenCode + DeepSeek + Spec Kit
 

@@ -46,7 +46,9 @@ Last updated: 2026-05-25
 
 ## Blockers
 
-None. All systems are implemented and passing TypeScript strict mode.
+| Blocker | Description | Resolution |
+|---|---|---|
+| **NEED_EXPO_LOGIN** | APK build requires Expo account login | Run `npx eas-cli login` in mobile-game/, then `npx eas-cli build -p android --profile preview-apk` |
 
 ## Integration Freeze Status
 

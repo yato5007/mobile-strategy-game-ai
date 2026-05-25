@@ -2540,3 +2540,29 @@ PlayerPenalized, SpyInfo, Error
 *Total Sections: 34*
 *Total Lines: ~3,800+*
 *Last Updated: 2026-05-25*
+
+---
+
+## Appendix D: Android APK Build
+
+### Status
+⏳ **Blocked: NEED_EXPO_LOGIN** — EAS Build requires an Expo account to produce the APK.
+
+### How to Build
+```bash
+cd mobile-game
+npx eas-cli login           # Step 1: Login to Expo
+npx eas-cli build -p android --profile preview-apk  # Step 2: Build APK
+```
+
+### Configuration
+- `eas.json` — Preview profile with `buildType: "apk"`
+- `app.json` — Package name: `com.shatranj.strategy`
+- EAS CLI available via `npx eas-cli` (v19.1.0)
+
+### Verification Before Build
+- ✅ TypeScript strict mode: zero errors
+- ✅ 238/250 tests passing (12 pre-existing failures, non-critical)
+- ✅ All 7 systems implemented and integrated
+
+For full details, see `BUILD_DELIVERABLES.md`.

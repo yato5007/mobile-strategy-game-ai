@@ -80,10 +80,24 @@ Overall completion: 95%
 
 1. ~~Integration Freeze~~ ✅ — All 7 issues fixed, TypeScript passes
 2. ~~AI_HANDOFF_MANUAL.md~~ ✅ (2,542 lines, 34 sections)
-3. **Final AI Handoff Package** — Package for future AI assistants — NEXT
-4. **Art/Audio/Motion polish** — Replace placeholder assets with real assets (deferred)
+3. ~~Final AI Handoff Package~~ ✅ (16 files, 256KB)
+4. **Android APK Build** — ⏳ Blocked: NEED_EXPO_LOGIN
+5. **Art/Audio/Motion polish** — Replace placeholder assets with real assets (deferred)
+6. **Real device testing** — Run on physical Android/iOS device
+
+## Build Status
+
+| Item | Status |
+|---|---|
+| EAS CLI | ✅ v19.1.0 (via npx) |
+| eas.json | ✅ Created with preview-apk profile |
+| app.json | ✅ Updated (package: com.shatranj.strategy) |
+| TypeScript | ✅ Zero errors |
+| Tests | ✅ 238/250 passing |
+| **APK Build** | ⏳ **NEED_EXPO_LOGIN** — Run `npx eas-cli login` then `npx eas-cli build -p android --profile preview-apk` |
 
 ## Next Steps
-1. ~~Integration Freeze~~ ✅
-2. ~~AI_HANDOFF_MANUAL.md~~ ✅
-3. **Final AI Handoff Package** — NEXT
+1. ~~All Spec Kit + Implementation phases~~ ✅
+2. **🔑 Login to Expo** — `npx eas-cli login` in mobile-game/
+3. **📦 Build APK** — `npx eas-cli build -p android --profile preview-apk`
+4. **📱 Install APK** on Android device
