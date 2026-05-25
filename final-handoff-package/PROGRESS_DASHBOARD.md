@@ -2,7 +2,7 @@
 
 Last updated: 2026-05-25
 
-Overall completion: 95%
+Overall completion: 90%
 
 ## Progress Breakdown
 
@@ -18,7 +18,7 @@ Overall completion: 95%
 | Art, Audio, Motion, and Game Feel | 7% | 70% | ✅ PLACEHOLDER (hooks + context + placeholders) |
 | Android / iOS Readiness | 4% | 30% | SCAFFOLDED |
 | Tests / Balance Simulator / QA | 10% | 85% | ✅ PARTIAL |
-| Integration / Documentation / Handoff | 4% | 90% | ✅ Final AI Handoff Package complete |
+| Integration / Documentation / Handoff | 4% | 60% | 🔄 AI_HANDOFF_MANUAL.md done |
 | SYSTEM_CONTRACTS.md | — | 100% | ✅ Complete (7 contracts) |
 | Navigation Type Safety | — | 100% | ✅ Fixed (no `any` params) |
 | App.tsx / Provider Wiring | — | 100% | ✅ ReduceMotionProvider wired |

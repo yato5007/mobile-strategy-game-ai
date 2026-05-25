@@ -1,5 +1,5 @@
 {
-  "overall_completion_percent": 95,
+  "overall_completion_percent": 90,
   "last_updated": "2026-05-25",
   "areas": {
     "main_speckit": { "weight": 10, "completion_percent": 100, "status": "COMPLETE" },
@@ -12,9 +12,9 @@
     "art_audio_motion_gamefeel": { "weight": 7, "completion_percent": 70, "status": "PLACEHOLDER_IMPLEMENTED" },
     "platforms": { "weight": 4, "completion_percent": 30, "status": "SCAFFOLDED" },
     "tests_balance_qa": { "weight": 10, "completion_percent": 85, "status": "PARTIAL" },
-    "integration_documentation_handoff": { "weight": 4, "completion_percent": 90, "status": "FINAL_PACKAGE_DONE" }
+    "integration_documentation_handoff": { "weight": 4, "completion_percent": 60, "status": "AI_HANDOFF_MANUAL_DONE" }
   },
-  "current_focus": "Final AI Handoff Package complete. Project at 95% — ready for playable prototype testing.",
+  "current_focus": "AI_HANDOFF_MANUAL.md complete (2,542 lines). Next: Final AI Handoff Package.",
   "blockers": [],
-  "next_step": "Run playable prototype, test on real device, add real audio/SVG assets."
+  "next_step": "Final AI Handoff Package — bundle all specs, decisions, progress, and handoff docs."
 }
